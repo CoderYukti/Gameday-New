@@ -20,9 +20,11 @@ gsap.to('.ib-scroll-trigger', {
   xPercent: 100,
   scrollTrigger: {
     trigger: '.ib-scroll-trigger',
-    start: 'center center',
-    end: '+=2000px',
-    markers:false,
+    // start: 'center center',
+    // end: '+=2000px',
+            start:"top 5%",
+        end:"top -100%",
+    markers:true,
     pin: '.ib-scroll-trigger',
     scrub: true,
     invalidateOnRefresh: true
@@ -61,6 +63,7 @@ $('.ib-card-slider').slick({
         settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
+            autoplay: true,
         }
       },        
       {
@@ -68,6 +71,7 @@ $('.ib-card-slider').slick({
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          autoplay: true,
           arrows: false,
           dots: true
         }
@@ -77,6 +81,7 @@ $('.ib-card-slider').slick({
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          autoplay: true,
           arrows: false,
           dots: true
         }
@@ -98,7 +103,8 @@ $('.ib-card-slider').slick({
             breakpoint: 1024,
             settings: {
                 arrows: false,
-                dots: true
+                dots: true,
+                autoplay: true,
             }
         }
     ]
