@@ -1,0 +1,774 @@
+@font-face {
+    font-family: HelveticaNowDisplay-Regular;
+    src: url(../font/HelveticaNowDisplay-Regular.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: HelveticaNowDisplay-Bold;
+    src: url(../font/HelveticaNowDisplay-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: HelveticaNowDisplay-ExtraBold;
+    src: url(../font/HelveticaNowDisplay-ExtraBold.ttf);
+    font-weight: 800;
+}
+@font-face {
+    font-family: HelveticaNowDisplay-Black;
+    src: url(../font/HelveticaNowDisplay-Black.ttf);
+    font-weight: 900;
+}
+.ib-full-width{    
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    max-width: 1920px !important;
+    overflow-x: hidden;
+}
+.container{
+    max-width: 1140px !important;
+}
+html, body{overflow-x: hidden;}
+
+/* Global CSS Start*/
+ul{padding-left: 0px;}
+
+h1{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 112px;
+    font-weight: 800;
+    line-height: 94px;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+h2{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 64px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+h3{
+    font-family: HelveticaNowDisplay-Black;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.ib-btns{
+    display: flex;
+    column-gap: 16px;
+}
+
+.ib-btn-white{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #000;
+    padding: 16px 28px;
+    background-color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: all .3s;
+}
+.ib-btn-white:hover{
+    color: #fff;
+    background-color: #EE3333;
+}
+.ib-btn-brandclr{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #fff;
+    padding: 16px 28px;
+    background-color: #EE3333;
+    text-decoration: none;
+    text-align: center;
+    transition: all .3s;
+}
+.ib-btn-brandclr:hover{
+    color: #000;
+    padding: 16px 28px;
+    background-color:#fff;
+}
+
+.ib-btn-outline{
+    border: 1px solid #000;
+    padding: 16px 28px;
+    color: #000;
+    text-decoration: none;
+    font-family: HelveticaNowDisplay-Bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    transition: all .3s;
+}
+
+.ib-btn-outline:hover{
+    color: #fff;
+    background-color: #EE3333;
+    border-color: #EE3333;
+}
+.ib-card-slider .slick-slide img{width: 100%;}
+.ib-card-slider .slick-prev{
+    left: -80px;
+    z-index: 99999;
+}
+.ib-card-slider .slick-next{
+    right: -44px;
+    z-index: 99999;
+}
+.ib-card-slider .slick-prev:before{
+    content: "";
+    background-image: url(../images/prev-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+.ib-card-slider .slick-next:before{
+    content: "";
+    background-image: url(../images/next-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+.ib-card-slider .slick-dots{
+    bottom: -50px;
+}
+.ib-card-slider .slick-dots li button:before{
+    color: #000;
+    font-size: 10px;
+}
+.ib-card-slider .slick-dots li.slick-active button:before{
+    color: #000;
+}
+
+.testimonial-card .slick-prev, 
+.testimonial-card .slick-next{
+    bottom: 0;
+    top: auto;
+    left: auto;
+    z-index: 99999;
+}
+.testimonial-card .slick-prev{
+    right: 11px;
+}
+.testimonial-card .slick-prev:before{
+    content: "";
+    background-image: url(../images/arrow_back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.testimonial-card .slick-next:before{
+    content: "";
+    background-image: url(../images/arrow_forward.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.testimonial-card .slick-dots{
+    bottom: -60px;
+}
+.testimonial-card .slick-dots li button:before{
+    color: #EE3333;
+    font-size: 10px;
+}
+.testimonial-card .slick-dots li.slick-active button:before{
+    color: #EE3333;
+}
+button{
+    background: transparent;
+    border: none;
+}
+
+/* Global CSS End*/
+
+/* banner start */
+#banner{
+    background:  url(../images/bg.png) no-repeat center;
+    background-size: cover;
+    height: 1086px;
+    padding-bottom: 142px;
+    position: relative;
+}
+
+#banner h1{
+    max-width: 1043px;
+    margin-bottom: 24px;
+    color: #fff;
+}
+
+#banner p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #fff;
+    max-width: 752px;
+    margin-bottom: 48px;
+}
+#banner .banner-content{
+    position: relative;
+}
+#banner .banner-content .ib-video-play{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#bannerVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#banner .banner-content .ib-video-play #playBtn{
+    display: none;
+}
+/* banner end */
+
+
+#ib-sec-two{
+    padding: 120px 0px;
+}
+
+#ib-sec-two .section-header{
+    max-width: 849px;
+}
+#ib-sec-two .section-header p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #505050;
+    margin-top: 16px;
+}
+
+
+
+#ib-sec-treatments{
+    padding: 120px 0px;
+    background-color: #F1F1F1;
+}
+#ib-sec-treatments .content{
+    margin-top: 60px;
+}
+#ib-sec-treatments .ib-card-slider .slick-slide{
+    margin: 0 12px;
+}
+#ib-sec-treatments .content .card-item img{
+    margin-bottom: 32px;
+}
+#ib-sec-treatments .content .category{
+    background-color: #ffffff;
+    padding: 2px 12px;
+    border-radius: 40px;
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    width: 165px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #505050;
+    margin-right: 12px;
+}
+
+#ib-sec-treatments .content .heading{
+    color: #000;
+    font-family: HelveticaNowDisplay-Bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-decoration: none;
+}
+#ib-sec-treatments .content p.excerpt{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    margin-top: 12px;
+}
+
+
+
+/* steps section start */
+#ib-sec-steps{
+    padding: 120px 0px;
+    background-color: #F1F1F1;
+}
+#ib-sec-steps h3{
+    margin-bottom: 40px;
+    max-width: 473px;
+}
+#ib-sec-steps .ib-timeline{
+    column-gap: 48px;
+    margin-top: 40px;
+    position: relative;
+    height: 116px;
+}
+/* #ib-sec-steps .ib-timeline:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    top: 49%;
+    left: 1%;
+    border: 1px solid #D92827;
+    height: 86%;
+} */
+.ib-timeline-content{
+    position: relative;
+}
+.ib-timeline-content:before {
+    content: "";
+    position: absolute;
+    left: 3%;
+    top: 20%;
+    border-left: 1px solid #D92827;
+    height: 60%;
+    z-index: 0;
+}
+#ib-sec-steps .ib-timeline .timeline-number{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    position: relative;
+    height: 24px;
+    margin-top: 17px;
+    color: #000;
+}
+#ib-sec-steps .ib-timeline .timeline-number span{
+    position: relative;
+    z-index: 2;
+}
+#ib-sec-steps .ib-timeline .timeline-number::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #D92827;
+    background-color: #F1F1F1;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    z-index: 1;
+}
+#ib-sec-steps .ib-timeline .timeline-content-heading{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    color: #000;
+}
+#ib-sec-steps .ib-timeline .timeline-content-text{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+}
+/* steps section end */
+
+/* testimonial section start */
+#ib-sec-testimonial{
+    background:  url(../images/testimonial\ with\ heading.png) no-repeat center;
+    background-size: cover;
+    padding: 120px 0px;
+}
+#ib-sec-testimonial .content-header h3{
+    color: #fff;
+}
+#ib-sec-testimonial .content-header h3 span{
+    color: #EE3333;
+    display: block;
+}
+#ib-sec-testimonial .content-header p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #fff;
+}
+
+#ib-sec-testimonial .testimonial-card{
+    margin-top: 160px;
+}
+#ib-sec-testimonial .testimonial-card .card-item{
+    max-width: 848px;
+}
+#ib-sec-testimonial .testimonial-card .slick-slide{
+    margin: 0 12px;
+}
+.ib-quote{
+    background:  url(../images/quote.png) no-repeat center;
+    background-size: cover;
+    width: 58px;
+    height: 50px;
+}
+#ib-sec-testimonial .testimonial-card p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #fff;
+    margin: 48px 0px;
+}
+#ib-sec-testimonial .testimonial-card .author .flex-sm-column{
+    flex-direction: column;
+}
+#ib-sec-testimonial .testimonial-card .author .author-name{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+#ib-sec-testimonial .testimonial-card .author .author-stars-place{
+    padding-left: 12px;
+    border-left: 1px solid #EE3333;
+    margin-right: 64px;
+}
+#ib-sec-testimonial .testimonial-card .author .author-stars-place .stars-heading{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #fff;   
+    text-transform: uppercase;
+}
+/* testimonial section end */
+
+
+/* counter section start */
+#ib-sec-counter{
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+#ib-sec-counter .ib-counter-number{
+    font-family: HelveticaNowDisplay-Black;
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 128px;
+    letter-spacing: -2px;
+    color: #D92827;
+}
+
+#ib-sec-counter .ib-counter-text{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    max-width: 260px;
+}
+/* counter section end */
+
+
+/* section seven start */
+#ib-sec-seven{
+    padding: 100px 0px;
+}
+#ib-sec-seven .content-header{
+    margin-bottom: 60px;
+}
+#ib-sec-seven .content-header p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    max-width: 771px;
+    color: #505050;
+    margin-top: 16px;
+}
+#ib-sec-seven .content{
+    overflow-x: visible;
+    flex-wrap: nowrap;
+}
+#ib-sec-seven .content .ib-card img{
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+#ib-sec-seven .content .ib-card .heading{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #000;
+    max-width: 645px;
+    margin-top: 24px;
+}
+#ib-sec-seven .content .ib-card p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    max-width: 645px;
+    margin-top: 8px;
+}
+/* section seven end */
+
+/* section eight start */
+#ib-sec-eight{
+    background-color: #F1F1F1;
+    padding: 120px 0px;
+}
+
+#ib-sec-eight .content{
+    max-width: 461px;
+}
+#ib-sec-eight h3{
+    margin-bottom: 16px;
+    color: #000;
+}
+
+#ib-sec-eight p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #505050;
+    margin-bottom: 55px;
+}
+/* section eight end */
+
+/* section nine start */
+#ib-sec-nine{
+    background:  url(../images/image21.png) no-repeat center;
+    background-size: cover;
+    /* padding-bottom: 142px; */
+    position: relative;
+    height: 899px;
+    margin-bottom: 256px;
+}
+
+#ib-sec-nine .content-place{
+    background:  url(../images/blackbox.png) no-repeat center;
+    background-size: cover;
+    padding: 82px 0px 77px 97px;
+    width: 1530px; 
+    overflow-x: visible;
+    transform: translateY(50%);
+}
+#ib-sec-nine .content{
+    max-width: 597px;
+}
+#ib-sec-nine .content h3{
+    color: #fff;
+    max-width: 477px;
+    margin-bottom: 16px;
+}
+#ib-sec-nine .content h3 span{
+    color: #EE3333;
+}
+#ib-sec-nine .content p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #fff;
+    margin-bottom: 75px;
+}
+/* section nine end */
+
+/* Blog section start */
+#ib-sec-blogs{
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+#ib-sec-blogs .content{
+    margin-top: 60px;
+}
+#ib-sec-blogs .content .category{
+    margin-top: 24px;
+    background-color: #F1F1F1;
+    padding: 2px 12px;
+    border-radius: 40px;
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    width: 100px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #505050;
+}
+
+#ib-sec-blogs .content .heading{
+    color: #000;
+    font-family: HelveticaNowDisplay-Bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-decoration: none;
+}
+#ib-sec-blogs .content p.excerpt{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    margin-top: 12px;
+}
+/* Blog section end */
+
+/* faq section start */
+#ib-sec-faq{
+    padding: 160px 0px;
+}
+#ib-sec-faq h2.heading{
+    max-width: 698px;
+    margin-bottom: 80px;
+    color: #000;
+}
+
+#ib-sec-faq .accordion-item{
+    border: none;
+    margin-bottom: 40px;
+}
+#ib-sec-faq .accordion-button{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    padding: 0px;
+    color: #505050;
+}
+#ib-sec-faq .accordion-body{
+    padding: 12px 0px;
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+}
+#ib-sec-faq .accordion-button:not(.collapsed){
+    background-color: transparent;
+    box-shadow:none;
+    color: #000;
+}
+#ib-sec-faq .accordion-button::after{
+    content: "";
+    background-image: url(../images/plus.png);
+    font-size: 35px;
+    color: #000;
+}
+#ib-sec-faq .accordion-button:not(.collapsed)::after{
+    background-image: url(../images/minus.png) !important;
+}
+#ib-sec-faq .accordion-button:focus{
+    box-shadow: none;
+}
+/* faq section end */
+
+/* footer section start */
+footer{
+    padding-top: 134px;
+    padding-bottom: 98px;
+    background-color: #F1F1F1;
+}
+
+footer .ib-footer-logo-text{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -1px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 29px;
+}
+footer .ib-footer-logo-text span{
+    color: #EE3333;
+}
+
+footer .social-icon{
+    margin-top: 29px;
+}
+footer .social-icon div:not(:last-child){
+    margin-right: 20px;
+}
+footer .social-icon div a{
+    font-size: 24px;
+    color: #000;
+}
+
+footer .ib-footer-menu-heading{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #505050;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+footer .ib-footer-menu ul li{
+    list-style-type: none;
+    margin-bottom: 11px;
+}
+footer .ib-footer-menu ul li a{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000;
+    text-decoration: none;
+}
+footer .ib-footer-menu ul li a:hover{
+    color: #EE3333;
+}
+
+footer .ib-footer-bottom{
+    margin-top: 98px;
+}
+
+footer .ib-footer-bottom ul{
+    float: right;
+}
+footer .ib-footer-bottom ul li{
+    list-style-type: none;
+    float: left;
+    color: #727272;
+}
+
+footer .ib-footer-bottom ul li:not(:last-child){
+    margin-right: 21px;
+}
+footer .ib-footer-bottom ul li a{
+    color: #000;
+    text-decoration: none;
+}
+/* footer section end */

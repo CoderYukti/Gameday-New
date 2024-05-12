@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gameday</title>
+    <!-- slick slider css cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome css cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- responsive css -->
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- custom css -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid ib-full-width">
+        <section id="banner" class="d-flex align-content-end flex-wrap">
+            <video id="bannerVideo" loop muted autoplay>
+                <source src="images/Gameday Men's Health - Fresno, CA.mp4" type="video/mp4">
+            </video>
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Find your maximal self</h1>
+                    <p>Live fuller, bolder, and stronger with Gameday's personalized health services. Your transformation begins here.</p>
+                    <div class="ib-btns">
+                        <a href="#" class="ib-btn-white">BOOK APPOINTMENT</a>
+                        <a href="#" class="ib-btn-brandclr">GET FREE TESTOSTERONE TEST</a>
+                    </div>
+                    <div class="ib-video-play">
+                        <button id="pauseBtn"><img src="images/toggle-pause-video.png" class="img-fluid" alt=""></button>
+                        <button id="playBtn"><img src="images/toggle-play-video.png" class="img-fluid" alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-two">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Made for every man’s health journey</h3>
+                    <p>Whether you're chasing peak performance, reigniting intimacy, or simply feeling your best, we keep you going with custom, expert-backed care.</p>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-treatments">
+            <div class="container">
+                <h3>Our treatments</h3>
+                <div class="content ib-card-slider">
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(2).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                        </div>
+                        <a href="#" class="heading">GAINSWave® Shockwave Therapy</a>
+                        <p class="excerpt">Enter your peak using an all-natural solution for harder erections, better performance, and enhanced intimacy.</p>
+                    </div>
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(3).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">Testosterone Health</div>
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                        </div>
+                        <a href="#" class="heading">Testosterone Replacement Therapy (TRT)</a>
+                        <p class="excerpt">Feel like yourself again—revive energy, confidence, and vitality with optimized testosterone levels.</p>
+                    </div>
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(4).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                            <div class="category">Weight Loss</div>
+                        </div>
+                        <a href="#" class="heading">HGH Peptides</a>
+                        <p class="excerpt">Reclaim your muscle, reduce fat, and boost sexual health by enhancing growth hormone production.</p>
+                    </div>
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(3).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">Testosterone Health</div>
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                        </div>
+                        <a href="#" class="heading">Testosterone Replacement Therapy (TRT)</a>
+                        <p class="excerpt">Feel like yourself again—revive energy, confidence, and vitality with optimized testosterone levels.</p>
+                    </div>
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(2).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                        </div>
+                        <a href="#" class="heading">GAINSWave® Shockwave Therapy</a>
+                        <p class="excerpt">Enter your peak using an all-natural solution for harder erections, better performance, and enhanced intimacy.</p>
+                    </div>
+                    <div class="card-item">
+                        <div>
+                            <img src="images/img(4).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="d-flex flex-sm-column flex-md-row">
+                            <div class="category">ERECTILE DYSFUNCTION</div>
+                            <div class="category">Weight Loss</div>
+                        </div>
+                        <a href="#" class="heading">HGH Peptides</a>
+                        <p class="excerpt">Reclaim your muscle, reduce fat, and boost sexual health by enhancing growth hormone production.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-steps">
+            <div class="container">
+                <div class="row row-gap-5">
+                    <div class="col-lg-6">
+                        <h3>Our Signature 3-Step Process</h3>
+                        <a href="#" class="ib-btn-brandclr">GET FREE CONSULTATION</a>
+                    </div>
+                    <div class="col-lg-6 ib-timeline-content">
+                        <div class="ib-timeline d-flex">
+                            <div class="timeline-number"><span>1</span></div>
+                            <div class="timeline-content">
+                                <div class="timeline-content-heading">Book a free consultation</div>
+                                <p class="timeline-content-text">Are you testosterone-deficient? Find out with a free testosterone test at our clinic.</p>
+                            </div>
+                        </div>
+                        <div class="ib-timeline d-flex">
+                            <div class="timeline-number"><span>2</span></div>
+                            <div class="timeline-content">
+                                <div class="timeline-content-heading">Create a gameplan</div>
+                                <p class="timeline-content-text">Work with our licensed team on a  health program tailored to your goals. </p>
+                            </div>
+                        </div>
+                        <div class="ib-timeline d-flex">
+                            <div class="timeline-number"><span>3</span></div>
+                            <div class="timeline-content">
+                                <div class="timeline-content-heading">Begin treatment</div>
+                                <p class="timeline-content-text">See quick results with weekly appointments, including improved energy, libido, and mood.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-testimonial">
+            <div class="container">
+                <div class="content-header">
+                    <div class="row align-items-end row-gap-4">
+                        <div class="col-lg-7 col-md-10">
+                            <h3><span>No limits—</span>just performance day in and day out</h3>
+                        </div>
+                        <div class="offset-lg-1 col-lg-4">
+                            <p>At GameDay, our vision extends beyond heath services. Together, we're creating a world where every man feels empowered to perform his best and live confidently.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="card-item">
+                        <div class="ib-quote"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                        <div class="author">
+                            <div class="author-name">Andrew K.</div>
+                            <div class="d-flex flex-md-row flex-sm-column row-gap-4">
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Works fast</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Gets results</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Smooth service</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="ib-quote"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                        <div class="author">
+                            <div class="author-name">Andrew K.</div>
+                            <div class="d-flex flex-md-row flex-sm-column row-gap-4">
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Works fast</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Gets results</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Smooth service</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="ib-quote"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                        <div class="author">
+                            <div class="author-name">Andrew K.</div>
+                            <div class="d-flex flex-md-row flex-sm-column row-gap-4">
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Works fast</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Gets results</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                                <div class="author-stars-place">
+                                    <div class="stars-heading">Smooth service</div>
+                                    <div><img src="images/rating-stars.png" class="img-fluid" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-counter">
+            <div class="container">
+                <div class="row row-gap-5">
+                    <div class="col-md-4">
+                        <div class="ib-counter-number">40%</div>
+                        <div class="ib-counter-text">of men by age 45 will have hypogonadism (Low T)</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ib-counter-number">1 in 4</div>
+                        <div class="ib-counter-text">men over 30 in the US (about 30 million) have Low Testosterone levels</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ib-counter-number">52%</div>
+                        <div class="ib-counter-text">of all men will struggle with some form of Erectile Dysfunction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-seven">
+            <div class="container">
+                <div class="content-header">
+                    <h3>THE GAMEDAY DIFFERENCE</h3>
+                    <p>Every man should have control over his health. Gone are the days of waiting in cold clinics with long wait times to know why you're feeling tired or lost your zest for life. We’re committed to providing you with fast appointments, immediate results, and a comfortable, discreet environment.</p>
+                </div>
+                <div class="ib-scroll-trigger">
+                    <div class="row content">
+                        <div class="ib-card col-md-11">
+                            <img src="images/Rectangle12569.png" class="img-fluid" alt="">
+                            <div class="heading">Get quick assessments and treatments</div>
+                            <p>Stop waiting to thrive—start improving your health now with same-day appointments, free assessments, lightning-fast 15-minute results, educational material, and expert guidance.</p>
+                        </div>
+                        <div class="ib-card col-md-11">
+                            <img src="images/Rectangle12570.png" class="img-fluid" alt="">
+                            <div class="heading">Get quick assessments and treatments</div>
+                            <p>Stop waiting to thrive—start improving your health now with same-day appointments, free assessments, lightning-fast 15-minute results, educational material, and expert guidance.</p>
+                        </div>
+                        <div class="ib-card col-md-11">
+                            <img src="images/Rectangle12569.png" class="img-fluid" alt="">
+                            <div class="heading">Get quick assessments and treatments</div>
+                            <p>Stop waiting to thrive—start improving your health now with same-day appointments, free assessments, lightning-fast 15-minute results, educational material, and expert guidance.</p>
+                        </div>
+                        <div class="ib-card col-md-11">
+                            <img src="images/Rectangle12570.png" class="img-fluid" alt="">
+                            <div class="heading">Get quick assessments and treatments</div>
+                            <p>Stop waiting to thrive—start improving your health now with same-day appointments, free assessments, lightning-fast 15-minute results, educational material, and expert guidance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-eight">
+            <div class="container">
+                <div class="row row-gap-5">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="content">
+                            <h3>We’ve got your back</h3>
+                            <p>As renowned doctors and dedicated client staff, our team provides the targeted support you need to be your best self. We guide you each step of the way for comfort, privacy, and optimal results.</p>
+                            <a href="#" class="ib-btn-outline">LEARN ABOUT US</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/image5.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-nine" class="d-flex align-items-end">
+            <div class="container">
+                <div class="content-place">
+                    <div class="content">
+                        <h3><span>Start</span> your best life</h3>
+                        <p>Get noticeable results in weeks with our personalized treatments, expert guidance, and deep commitment to your well-being.</p>
+                        <div class="ib-btns">
+                            <a href="#" class="ib-btn-brandclr">GET FREE CONSULTATION</a>
+                            <a href="#" class="ib-btn-white">BOOK APPOINTMENT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-blogs">
+            <div class="container">
+                <div class="row align-items-center row-gap-4">
+                    <div class="col-md-3 text-center">
+                        <h3 class="float-md-start">Blog</h3>
+                    </div>
+                    <div class="offset-md-5 col-md-4 text-center">
+                        <a href="#" class="ib-btn-outline float-md-end">READ ALL BLOG</a>
+                    </div>
+                </div>
+                <div class="row content row-gap-4">
+                    <div class="col-md-4">
+                        <div>
+                            <img src="images/img.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="category">Category</div>
+                        <a href="#" class="heading">What is Gainswave® – Gameday Men’s Health</a>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <img src="images/img (1).png" class="img-fluid" alt="">
+                        </div>
+                        <div class="category">Category</div>
+                        <a href="#" class="heading">A Mans Guide to TRT Everything You Need to Know</a>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <img src="images/default img.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="category">Category</div>
+                        <a href="#" class="heading">Blog title heading will go here lorem ipsum dolor sit amet</a>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="ib-sec-faq">
+            <div class="container">
+                <h2 class="heading">FREQUENTLY ASKED QUESTIONS</h2>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Question text goes here
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero. 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Question text goes here
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero. 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Question text goes here
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row row-gap-5">
+                    <div class="col-lg-3 col-md-4 d-flex flex-column">
+                        <img src="images/full-logo.png" class="img-fluid" alt="">
+                        <div class="ib-footer-logo-text">Reclaim your <span>Game</span></div>
+                        <div class="social-icon d-flex justify-content-center">
+                            <div><a href="#"><i class="fa-brands fa-facebook"></i></a></div>
+                            <div><a href="#"><i class="fa-brands fa-instagram"></i></a></div>
+                            <div><a href="#"><i class="fa-brands fa-linkedin"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-2 offset-md-2 col-md-6">
+                        <div class="ib-footer-menu-heading">Services</div>
+                        <div class="ib-footer-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Testosterone Health</a>
+                                </li>
+                                <li>
+                                    <a href="#">Erectile Dysfunction</a>
+                                </li>
+                                <li>
+                                    <a href="#">Weight Loss</a>
+                                </li>
+                                <li>
+                                    <a href="#">Vitamin Injections & Supplements</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="ib-footer-menu-heading">Treatments</div>
+                        <div class="ib-footer-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Testosterone Replacement Therapy (TRT)</a>
+                                </li>
+                                <li>
+                                    <a href="#">HGH Peptides</a>
+                                </li>
+                                <li>
+                                    <a href="#">Clomid</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gainswave Shockwave Therapy</a>
+                                </li>
+                                <li>
+                                    <a href="#">P-Shot (Priapus Shot)</a>
+                                </li>
+                                <li>
+                                    <a href="#">Viagra and Cialis</a>
+                                </li>
+                                <li>
+                                    <a href="#">Trimix</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semaglutide</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tirzepatide</a>
+                                </li>
+                                <li>
+                                    <a href="#">Vitamin Injections</a>
+                                </li>
+                                <li>
+                                    <a href="#">Supplements</a>
+                                </li>
+                                <li>
+                                    <a href="#">Peptides</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="ib-footer-menu-heading">Explore</div>
+                        <div class="ib-footer-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Locations</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#">Book Appointment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Get Free Testosterone Consultation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="ib-footer-bottom d-lg-block d-md-flex justify-content-md-center">
+                    <ul>
+                        <li>© 2024 GameDay Men’s Health. All rights reserved.</li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Cookie Settings</a></li>
+                        <li><a href="#">TOS / Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- slick slider js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- font awesome js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- gsap cdn -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- custom js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
