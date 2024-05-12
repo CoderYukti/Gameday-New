@@ -20,11 +20,9 @@ gsap.to('.ib-scroll-trigger', {
   xPercent: 100,
   scrollTrigger: {
     trigger: '.ib-scroll-trigger',
-    // start: 'center center',
-    // end: '+=2000px',
-            start:"top 5%",
-        end:"top -100%",
-    markers:true,
+    start: 'center center',
+    end: '+=2000px',
+    markers:false,
     pin: '.ib-scroll-trigger',
     scrub: true,
     invalidateOnRefresh: true
