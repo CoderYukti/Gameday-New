@@ -1,232 +1,291 @@
-@media (min-width:768px) and (max-width:991px){
-    #banner h1{
+@media (min-width:768px) and (max-width:991px) {
+    #banner h1 {
         font-size: 100px !important;
         line-height: 82px !important;
     }
-    #banner .banner-content .ib-video-play img{
+
+    #banner .banner-content .ib-video-play img {
         width: 80% !important;
     }
+
     #ib-sec-two,
     #ib-sec-treatments,
     #ib-sec-steps,
     #ib-sec-seven,
     #ib-sec-eight,
-    #ib-sec-faq
-    {
+    #ib-sec-faq {
         padding: 80px 0px !important;
     }
-    #ib-sec-steps .ib-timeline{
+
+    #ib-sec-steps .ib-timeline {
         padding: 0px 25px;
     }
-    .timeline-line{
+
+    .timeline-line {
         left: 43px !important;
     }
+
     .ib-timeline-content:before {
         left: 43px !important;
         top: 20% !important;
         transform: translateX(0px) !important;
     }
+
     #ib-sec-testimonial .testimonial-card {
         margin-top: 80px !important;
     }
-    #ib-sec-testimonial .testimonial-card p{
+
+    #ib-sec-testimonial .testimonial-card p {
         font-size: 22px !important;
         line-height: 30px !important;
         margin: 38px 0px !important;
     }
+
     #ib-sec-counter {
         padding-top: 80px !important;
     }
-    #ib-sec-counter .ib-counter-number{
+
+    #ib-sec-counter .ib-counter-number {
         font-size: 80px !important;
         line-height: 100px !important;
     }
-    #ib-sec-nine .content-place{
+
+    #ib-sec-nine .content-place {
         width: 100% !important;
         padding: 60px 0px 60px 60px !important;
     }
-    #ib-sec-blogs{
+
+    #ib-sec-blogs {
         padding-top: 80px !important;
     }
-    footer{
+
+    footer {
         padding-top: 80px !important;
         padding-bottom: 40px !important;
     }
-    footer .ib-footer-bottom ul{
+
+    footer .ib-footer-bottom ul {
         float: none !important;
     }
-    .ib-footer-bottom ul li:first-child{
+
+    .ib-footer-bottom ul li:first-child {
         float: none;
         margin-right: 0px !important;
         text-align: center;
         margin-bottom: 10px;
     }
+
     footer .ib-footer-bottom {
         margin-top: 50px !important;
     }
 }
 
-@media (max-width:767px){
+@media (max-width:767px) {
     .flex-sm-column {
         flex-direction: column !important;
     }
-    h1{
+
+    h1 {
         font-size: 40px !important;
         line-height: 35px !important;
         letter-spacing: 0px !important;
     }
-    h2{
+
+    h2 {
         font-size: 37px !important;
         line-height: 37px !important;
     }
-    h3{
+
+    h3 {
         font-size: 35px !important;
         line-height: 35px !important;
         letter-spacing: 0px !important;
     }
-    p{
+
+    p {
         font-size: 18px !important;
         line-height: 25px !important;
+        margin-bottom: 0px !important;
     }
+
     .ib-btn-white,
-    .ib-btn-brandclr{
+    .ib-btn-brandclr {
         padding: 16px 20px !important;
     }
-    .ib-btns{
+
+    .ib-btns {
         display: flex;
         flex-direction: column;
         row-gap: 10px;
     }
-    #banner{
+
+    #banner {
         height: 800px !important;
         padding-bottom: 70px !important;
     }
-    #banner .banner-content{
+
+    #banner .banner-content {
         bottom: 30%;
     }
+
     #banner .banner-content .ib-video-play {
         bottom: -45% !important;
         right: 50% !important;
         transform: translate(50%, -45%);
     }
-    #banner .banner-content .ib-video-play img{
+
+    #banner .banner-content .ib-video-play img {
         width: 90% !important;
     }
-    #ib-sec-treatments{
+
+    #ib-sec-treatments {
         padding-top: 80px !important;
         padding-bottom: 40px !important;
     }
+
     #ib-sec-treatments .content {
         margin-top: 40px !important;
     }
 
     #ib-sec-two,
     #ib-sec-testimonial,
-    #ib-sec-steps{
+    #ib-sec-steps {
         padding: 80px 0px !important;
     }
-    #ib-sec-steps .ib-timeline{
+
+    #ib-sec-steps .ib-timeline {
         padding: 0px 25px;
-        height: 178px !important;
     }
-    .timeline-line{
+
+    #ib-sec-steps .ib-timeline .timeline-content-heading {
+        font-size: 22px !important;
+        line-height: 27px !important;
+    }
+
+    .timeline-line {
         left: 43px !important;
+        height: 70% !important;
     }
+
     .ib-timeline-content:before {
         left: 43px !important;
         top: 14% !important;
         transform: translateX(0px) !important;
     }
+
     #ib-sec-testimonial .testimonial-card {
         margin-top: 80px !important;
     }
+
     #ib-sec-counter {
         padding-top: 60px !important;
     }
+
     #ib-sec-counter .ib-counter-number {
         font-size: 70px !important;
         line-height: 80px !important;
     }
+
     #ib-sec-seven {
         padding: 60px 0px !important;
     }
-    #ib-sec-seven .content .ib-card .heading{
+
+    #ib-sec-seven .content .ib-card .heading {
         font-size: 20px !important;
         line-height: 28px !important;
     }
+
     #ib-sec-seven .content .ib-card img {
         height: auto !important;
         object-fit: contain !important;
     }
-    #ib-sec-eight{
+
+    #ib-sec-eight {
         padding: 60px 0px !important;
     }
-    #ib-sec-eight .content-place .content{
+
+    #ib-sec-eight .content-place .content {
         max-width: 341px !important;
     }
-    #ib-sec-nine .content-place{
+
+    #ib-sec-nine .content-place {
         width: 100% !important;
         padding: 40px 20px 40px 20px !important;
     }
-    #ib-sec-nine .content-place .content p{
+
+    #ib-sec-nine .content-place .content p {
         margin-bottom: 50px !important;
     }
-    #ib-sec-blogs{
+
+    #ib-sec-blogs {
         padding-top: 60px !important;
     }
-    #ib-sec-blogs .content .heading{
+
+    #ib-sec-blogs .content .heading {
         font-size: 20px !important;
         line-height: 28px !important;
     }
+
     #ib-sec-faq {
         padding: 50px 0px !important;
     }
+
     #ib-sec-faq a.heading {
         margin-bottom: 50px !important;
     }
-    #ib-sec-faq .accordion-button{
+
+    #ib-sec-faq .accordion-button {
         font-size: 18px !important;
         line-height: 26px !important;
     }
-    #ib-sec-faq .accordion-body{
+
+    #ib-sec-faq .accordion-body {
         font-size: 16px !important;
         line-height: 23px !important;
     }
-    footer{
+
+    footer {
         padding-top: 70px !important;
         padding-bottom: 230px !important;
     }
-    footer .ib-footer-bottom{
+
+    footer .ib-footer-bottom {
         margin-top: 50px !important;
     }
-    footer .ib-footer-bottom ul{
+
+    footer .ib-footer-bottom ul {
         float: left !important;
     }
-    footer .ib-footer-bottom ul li{
+
+    footer .ib-footer-bottom ul li {
         float: none !important;
         margin-top: 15px;
     }
 }
 
 
-@media (min-width:1024px) and (max-width:1300px){
+@media (min-width:1024px) and (max-width:1300px) {
     .ib-card-slider .slick-next {
         right: 20px !important;
     }
+
     .ib-card-slider .slick-prev {
         left: -20px !important;
     }
+
     .ib-card-slider .slick-next:before,
-    .ib-card-slider .slick-prev:before{
+    .ib-card-slider .slick-prev:before {
         width: 50px !important;
         height: 50px !important;
     }
-    .ib-card-slider{
+
+    .ib-card-slider {
         max-width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
-    #ib-sec-testimonial .testimonial-card{
+
+    #ib-sec-testimonial .testimonial-card {
         max-width: 95% !important;
     }
 }

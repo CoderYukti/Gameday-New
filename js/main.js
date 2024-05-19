@@ -57,30 +57,8 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Horizontal Scroll Animation
-  let ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
-
-  gsap.to('.ib-scroll-trigger', {
-    x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
-    ease: "none",
-    scrollTrigger: {
-      trigger: '.ib-scroll-wrapper',
-      start: 'top top', // Adjust start point as needed
-      end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
-      markers: true,
-      pin: '.ib-scroll-wrapper',
-      scrub: 3,
-      invalidateOnRefresh: true
-    }
-  });
-
   // Timeline Animation with Screen Size Handling
   function setupAnimations(triggerElement) {
-    // Destroy existing ScrollTriggers if necessary
-    // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
     ScrollTrigger.create({
       trigger: triggerElement,
       start: 'top top',
@@ -88,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       pin: true,
       pinSpacing: true,
       scrub: true,
-      markers: true,
+      markers: false,
       onUpdate: self => {
         gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
         updateActiveTimelineNumber(self.progress);
@@ -120,6 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setupForScreenSize(screenSize) {
+    const triggers = ScrollTrigger.getAll();
+    const existingTimelineTrigger = triggers.find(trigger => trigger.vars.trigger === '.ib-timeline-content' || trigger.vars.trigger === '#ib-sec-steps');
+
+    if (existingTimelineTrigger) {
+      existingTimelineTrigger.kill();
+    }
+
     if (screenSize.matches) {
       setupAnimations('.ib-timeline-content');
     } else {
@@ -130,7 +115,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const screenSize = window.matchMedia("(max-width: 991px)");
   setupForScreenSize(screenSize);
   screenSize.addListener(setupForScreenSize);
+
+
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Horizontal Scroll Animation
+  const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
+  const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
+
+  if (ibscrolltrigger && ibscrollwrapper) {
+    gsap.to(ibscrolltrigger, {
+      x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ibscrollwrapper,
+        start: 'top top', // Adjust start point as needed
+        end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
+        markers: false,
+        pin: ibscrollwrapper,
+        scrub: 3,
+        invalidateOnRefresh: true
+      }
+    });
+  }
 });
+
+
 
 
 

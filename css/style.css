@@ -368,7 +368,6 @@ button {
 #ib-sec-steps .ib-timeline {
     column-gap: 48px;
     position: relative;
-    height: 116px;
 }
 
 #ib-sec-steps .ib-timeline:not(:last-child) {
