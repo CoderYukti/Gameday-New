@@ -18,6 +18,9 @@
     #ib-sec-steps .ib-timeline{
         padding: 0px 25px;
     }
+    .timeline-line{
+        left: 43px !important;
+    }
     .ib-timeline-content:before {
         left: 43px !important;
         top: 20% !important;
@@ -125,6 +128,9 @@
     #ib-sec-steps .ib-timeline{
         padding: 0px 25px;
         height: 178px !important;
+    }
+    .timeline-line{
+        left: 43px !important;
     }
     .ib-timeline-content:before {
         left: 43px !important;
