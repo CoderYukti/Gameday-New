@@ -396,3 +396,34 @@ $('.testimonial-card').slick({
     }
   ]
 });
+
+// document.querySelector('.footer-menu-heading-arrow').addEventListener('click', function() {
+//   var menu = document.querySelector('.ib-footer-menu');
+//   if (menu.classList.contains('open')) {
+//       menu.classList.remove('open');
+//   } else {
+//       menu.classList.add('open');
+//   }
+// });
+
+
+$(document).ready(function() {
+  $('.footer-menu-heading-arrow').click(function() {
+      var menu = $(this).parent().next('.ib-footer-menu');
+      var isOpen = menu.css('max-height') !== '0px' && menu.css('max-height') !== 'none';
+
+      // Close all menus and remove rotation from all arrows
+      $('.ib-footer-menu').css('max-height', '0px');
+      $('.footer-menu-heading-arrow').removeClass('open');
+
+      // Toggle the clicked menu
+      if (isOpen) {
+          menu.css('max-height', '0px');
+      } else {
+          menu.css('max-height', menu.prop('scrollHeight') + 'px');
+          $(this).addClass('open');
+      }
+  });
+});
+
+

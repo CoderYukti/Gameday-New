@@ -873,9 +873,13 @@ footer .ib-footer-menu-heading {
     letter-spacing: 0.5px;
     color: #505050;
     text-transform: uppercase;
-    margin-bottom: 32px;
 }
-
+.footer-menu-heading-arrow{
+    display: none;
+}
+footer .ib-footer-menu{
+    margin-top: 32px;
+}
 footer .ib-footer-menu ul li {
     list-style-type: none;
     margin-bottom: 11px;
@@ -899,16 +903,31 @@ footer .ib-footer-bottom {
 }
 
 footer .ib-footer-bottom ul {
-    float: right;
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
 }
 
 footer .ib-footer-bottom ul li {
     list-style-type: none;
-    float: left;
     color: #727272;
 }
 
-footer .ib-footer-bottom ul li:not(:last-child) {
+footer .ib-footer-bottom ul li:first-child{
+    order: 3;
+}
+footer .ib-footer-bottom ul li:nth-child(2){
+    order: 2;
+}
+footer .ib-footer-bottom ul li:nth-child(3){
+    order: 1;
+    margin-right: 0px;
+}
+footer .ib-footer-bottom ul li:last-child{
+    order: 4;
+}
+
+footer .ib-footer-bottom ul li {
     margin-right: 21px;
 }
 
