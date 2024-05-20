@@ -233,8 +233,8 @@ button {
 #banner {
     background: url(../images/bg.png) no-repeat center;
     background-size: cover;
-    height: 1086px;
-    padding-bottom: 142px;
+    height: 100vh;
+    max-height: 1086px;
     position: relative;
 }
 

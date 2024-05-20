@@ -1,7 +1,7 @@
 @media (min-width:768px) and (max-width:991px) {
     #banner h1 {
-        font-size: 100px !important;
-        line-height: 82px !important;
+        font-size: 90px !important;
+        line-height: 72px !important;
     }
 
     #banner .banner-content .ib-video-play img {
@@ -87,7 +87,7 @@
 
     h1 {
         font-size: 40px !important;
-        line-height: 35px !important;
+        line-height: 32px !important;
         letter-spacing: 0px !important;
     }
 
@@ -105,7 +105,6 @@
     p {
         font-size: 18px !important;
         line-height: 25px !important;
-        margin-bottom: 0px !important;
     }
 
     .ib-btn-white,
@@ -120,18 +119,13 @@
     }
 
     #banner {
-        height: 800px !important;
-        padding-bottom: 70px !important;
-    }
-
-    #banner .banner-content {
-        bottom: 30%;
+        height: 650px !important;
     }
 
     #banner .banner-content .ib-video-play {
-        bottom: -45% !important;
+        bottom: -37% !important;
         right: 50% !important;
-        transform: translate(50%, -45%);
+        transform: translate(50%, -37%);
     }
 
     #banner .banner-content .ib-video-play img {

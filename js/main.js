@@ -57,64 +57,109 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Timeline Animation with Screen Size Handling
-  function setupAnimations(triggerElement) {
-    ScrollTrigger.create({
-      trigger: triggerElement,
-      start: 'top top',
-      end: '+=2000px',
-      pin: true,
-      pinSpacing: true,
-      scrub: true,
-      markers: false,
-      onUpdate: self => {
-        gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
-        updateActiveTimelineNumber(self.progress);
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Pin the timeline and animate the line filling
+  ScrollTrigger.create({
+    trigger: '#ib-sec-steps',
+    start: 'center center',        // Start when the top of the timeline hits the top of the viewport
+    end: '+=2000px',               // End when the bottom of the timeline hits the bottom of the viewport
+    pin: true,                     // Pin the timeline
+    pinSpacing: true,              // Maintain spacing
+    scrub: true,                   // Smooth scrubbing
+    markers: false,                 // Remove this in production
+    invalidateOnRefresh: true,
+    onUpdate: self => {
+      gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
+      updateActiveTimelineNumber(self.progress);
+    }
+  });
+
+  // Function to update active timeline number
+  function updateActiveTimelineNumber(progress) {
+    const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
+    const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
+    const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+
+    timelineNumbers.forEach((number, index) => {
+      if (index <= activeIndex) {
+        if (!number.classList.contains('active')) {
+          number.classList.add('active');
+          gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
+        }
+      } else {
+        number.classList.remove('active');
+        gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
       }
     });
 
-    function updateActiveTimelineNumber(progress) {
-      const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
-      const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
-      const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
-
-      timelineNumbers.forEach((number, index) => {
-        if (index <= activeIndex) {
-          if (!number.classList.contains('active')) {
-            number.classList.add('active');
-            gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
-          }
-        } else {
-          number.classList.remove('active');
-          gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
-        }
-      });
-
-      if (progress === 0) {
-        timelineNumbers[0].classList.remove('active');
-        gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
-      }
+    // Ensure the active class is removed from the first number if the fill height is 0
+    if (progress === 0) {
+      timelineNumbers[0].classList.remove('active');
+      gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
     }
   }
 
-  function setupForScreenSize(screenSize) {
-    const triggers = ScrollTrigger.getAll();
-    const existingTimelineTrigger = triggers.find(trigger => trigger.vars.trigger === '.ib-timeline-content' || trigger.vars.trigger === '#ib-sec-steps');
 
-    if (existingTimelineTrigger) {
-      existingTimelineTrigger.kill();
-    }
 
-    if (screenSize.matches) {
-      setupAnimations('.ib-timeline-content');
-    } else {
-      setupAnimations('#ib-sec-steps');
-    }
-  }
+  // // Timeline Animation with Screen Size Handling
+  // function setupAnimations(triggerElement) {
+  //   ScrollTrigger.create({
+  //     trigger: triggerElement,
+  //     start: 'top top',
+  //     end: '+=2000px',
+  //     pin: true,
+  //     pinSpacing: true,
+  //     scrub: true,
+  //     markers: false,
+  //     onUpdate: self => {
+  //       gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
+  //       updateActiveTimelineNumber(self.progress);
+  //     }
+  //   });
 
-  const screenSize = window.matchMedia("(max-width: 991px)");
-  setupForScreenSize(screenSize);
-  screenSize.addListener(setupForScreenSize);
+  //   function updateActiveTimelineNumber(progress) {
+  //     const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
+  //     const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
+  //     const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+
+  //     timelineNumbers.forEach((number, index) => {
+  //       if (index <= activeIndex) {
+  //         if (!number.classList.contains('active')) {
+  //           number.classList.add('active');
+  //           gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
+  //         }
+  //       } else {
+  //         number.classList.remove('active');
+  //         gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //       }
+  //     });
+
+  //     if (progress === 0) {
+  //       timelineNumbers[0].classList.remove('active');
+  //       gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //     }
+  //   }
+  // }
+
+  // function setupForScreenSize(screenSize) {
+  //   const triggers = ScrollTrigger.getAll();
+  //   const existingTimelineTrigger = triggers.find(trigger => trigger.vars.trigger === '.ib-timeline-content' || trigger.vars.trigger === '#ib-sec-steps');
+
+  //   if (existingTimelineTrigger) {
+  //     existingTimelineTrigger.kill();
+  //   }
+
+  //   if (screenSize.matches) {
+  //     setupAnimations('#ib-sec-steps');
+  //   } else {
+  //     setupAnimations('#ib-sec-steps');
+  //   }
+  // }
+
+  // const screenSize = window.matchMedia("(max-width: 991px)");
+  // setupForScreenSize(screenSize);
+  // screenSize.addListener(setupForScreenSize);
 
 
 
@@ -130,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ease: "none",
       scrollTrigger: {
         trigger: ibscrollwrapper,
-        start: 'top top', // Adjust start point as needed
+        start: 'center center', // Adjust start point as needed
         end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
         markers: false,
         pin: ibscrollwrapper,
