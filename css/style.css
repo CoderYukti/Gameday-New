@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden;
+}
+
+
 @font-face {
     font-family: HelveticaNowDisplay-Regular;
     src: url(../font/HelveticaNowDisplay-Regular.ttf);
@@ -32,15 +42,10 @@
 .container {
     max-width: 1140px !important;
 }
-
-html,
-body {
-    overflow-x: hidden;
-}
-
 /* Global CSS Start*/
 ul {
     padding-left: 0px;
+    margin-bottom: 0;
 }
 
 h1 {
@@ -122,6 +127,7 @@ h3 {
     font-size: 16px;
     line-height: 20px;
     transition: all .3s;
+    text-transform: uppercase;
 }
 
 .ib-btn-outline:hover {
@@ -140,8 +146,15 @@ h3 {
 }
 
 .ib-card-slider .slick-next {
-    right: -44px;
+    right: -70px;
     z-index: 99999;
+}
+.ib-card-slider .slick-prev,
+.ib-card-slider .slick-next{
+    background-color: #fff;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
 }
 
 .ib-card-slider .slick-prev:before {
@@ -149,9 +162,11 @@ h3 {
     background-image: url(../images/prev-Button.png);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 56px;
-    height: 56px;
+    width: 10px;
+    height: 17px;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ib-card-slider .slick-next:before {
@@ -159,9 +174,11 @@ h3 {
     background-image: url(../images/next-Button.png);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 56px;
-    height: 56px;
+    width: 10px;
+    height: 17px;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ib-card-slider .slick-dots {
@@ -228,6 +245,75 @@ button {
 }
 
 /* Global CSS End*/
+
+
+#header-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    padding: 20px 0px;
+}
+#header-menu ul{
+    text-align: center;
+}
+#header-menu ul li{
+    display: inline-block;
+}
+#header-menu ul li{
+    margin-right: 24px;
+}
+#header-menu ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: HelveticaNowDisplay-Regular;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    position: relative;
+
+}
+#header-menu ul li:nth-child(4){
+    margin-left: 67px;
+    margin-right: 40px;
+}
+#header-menu ul li:first-child{
+    margin-right: 44px;
+}
+#header-menu ul li:first-child a::after{
+    content: "";
+    background-image: url(../images/down-arrow-white.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+    display: block;
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#header-menu ul li:last-child{
+    margin-right: 35px;
+}
+#header-menu ul li:last-child a::after{
+    content: "";
+    background-image: url(../images/right-arrow-menu.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: -32px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#header-menu .mob-menu{
+    display: none;
+}
 
 /* banner start */
 #banner {
@@ -297,6 +383,81 @@ button {
     color: #505050;
     margin-top: 16px;
 }
+
+#ib-sec-two .services-item-heading{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 39px;
+    color: #B8B8B8;
+    text-transform: uppercase;
+}
+#ib-sec-two .content{
+    margin-top: 60px;
+}
+#ib-sec-two .content .services{
+    border-bottom: 1px solid #B8B8B8;
+    padding: 16px 0px;
+}
+#ib-sec-two .services .services-content .services-header{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 39px;
+    color: #211C1C;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+}
+#ib-sec-two .services .services-content .services-header:hover{
+    color: #F71E33;
+}
+#ib-sec-two .services .services-content .services-header::after{
+    content: "";
+    background-image: url(../images/right-arrow-red.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 22px;
+    display: block;
+    position: absolute;
+    right: -32px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#ib-sec-two .services .services-content p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    max-width: 569px;
+    margin-top: 9px;
+}
+
+#ib-sec-two .services .services-content {
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s;
+}
+
+#ib-sec-two .services.active .services-content {
+    opacity: 1;
+    max-height: 100%;
+}
+
+#ib-sec-two .services.active .services-item-heading {
+    display: none;
+}
+
+
+
 
 
 
@@ -621,7 +782,7 @@ button {
 
 #ib-sec-seven .content .ib-card img {
     width: 100%;
-    height: 420px;
+    height: 70%;
     object-fit: cover;
 }
 
@@ -649,6 +810,61 @@ button {
 .ib-scroll-wrapper {
     position: relative;
     /* Ensure proper positioning for the pin */
+}
+
+#ib-sec-seven .slick-slide{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#ib-sec-seven .slick-dots li button:before{
+    color: #F1F1F1 !important;
+    font-size: 10px;
+}
+#ib-sec-seven .slick-dots li.slick-active button:before{
+    color: #000 !important;
+}
+
+#ib-sec-seven .slick-dots{
+    bottom: -46px !important;
+}
+#ib-sec-seven .slick-prev, 
+#ib-sec-seven .slick-next{
+    top: auto;
+    bottom: -88px;
+    width: auto;
+    background-color: #F1F1F1;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    z-index: 999999;
+}
+#ib-sec-seven .slick-prev{
+    left: 16px;
+}
+#ib-sec-seven .slick-next{
+    right: 16px;
+}
+#ib-sec-seven .slick-next:before{
+    content: "";
+    background-image: url(../images/next-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 17px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#ib-sec-seven .slick-prev:before{
+    content: "";
+    background-image: url(../images/prev-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 17px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -768,6 +984,61 @@ button {
     line-height: 24px;
     color: #505050;
     margin-top: 12px;
+}
+
+#ib-sec-blogs .slick-slide{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#ib-sec-blogs .slick-dots li button:before{
+    color: #F1F1F1 !important;
+    font-size: 10px;
+}
+#ib-sec-blogs .slick-dots li.slick-active button:before{
+    color: #000 !important;
+}
+
+#ib-sec-blogs .slick-dots{
+    bottom: -46px !important;
+}
+#ib-sec-blogs .slick-prev, 
+#ib-sec-blogs .slick-next{
+    top: auto;
+    bottom: -88px;
+    width: auto;
+    background-color: #F1F1F1;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    z-index: 999999;
+}
+#ib-sec-blogs .slick-prev{
+    left: 16px;
+}
+#ib-sec-blogs .slick-next{
+    right: 16px;
+}
+#ib-sec-blogs .slick-next:before{
+    content: "";
+    background-image: url(../images/next-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 17px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#ib-sec-blogs .slick-prev:before{
+    content: "";
+    background-image: url(../images/prev-Button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 17px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Blog section end */
@@ -906,11 +1177,13 @@ footer .ib-footer-bottom ul {
     display: flex;
     justify-content: end;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
 }
 
 footer .ib-footer-bottom ul li {
     list-style-type: none;
     color: #727272;
+    margin-right: 21px;
 }
 
 footer .ib-footer-bottom ul li:first-child{
@@ -925,10 +1198,6 @@ footer .ib-footer-bottom ul li:nth-child(3){
 }
 footer .ib-footer-bottom ul li:last-child{
     order: 4;
-}
-
-footer .ib-footer-bottom ul li {
-    margin-right: 21px;
 }
 
 footer .ib-footer-bottom ul li a {

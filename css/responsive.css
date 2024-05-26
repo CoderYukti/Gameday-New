@@ -31,6 +31,10 @@
         transform: translateX(0px) !important;
     }
 
+    #ib-sec-testimonial {
+        padding-bottom: 170px !important;
+    }
+
     #ib-sec-testimonial .testimonial-card {
         margin-top: 80px !important;
     }
@@ -39,6 +43,12 @@
         font-size: 22px !important;
         line-height: 30px !important;
         margin: 38px 0px !important;
+    }
+
+    .testimonial-card .slick-prev,
+    .testimonial-card .slick-next {
+        right: auto !important;
+        bottom: -90px !important;
     }
 
     #ib-sec-counter {
@@ -63,16 +73,24 @@
         padding-top: 80px !important;
         padding-bottom: 40px !important;
     }
+
     footer .ib-footer-bottom ul {
-        flex-direction: column !important;
+        justify-content: center !important;
+        column-gap: 20px;
+        row-gap: 10px;
     }
+
+    footer .ib-footer-bottom ul li {
+        margin-right: 0px !important;
+    }
+
     footer .ib-footer-bottom ul li:first-child,
     footer .ib-footer-bottom ul li:nth-child(2),
     footer .ib-footer-bottom ul li:nth-child(3),
-    footer .ib-footer-bottom ul li:last-child
-    {
+    footer .ib-footer-bottom ul li:last-child {
         order: unset !important;
     }
+
     footer .ib-footer-bottom {
         margin-top: 50px !important;
     }
@@ -105,6 +123,18 @@
         line-height: 25px !important;
     }
 
+    .ib-quote {
+        width: 34px !important;
+        height: 29px !important;
+    }
+
+    .ib-btn-outline,
+    .ib-btn-brandclr {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
     .ib-btn-white,
     .ib-btn-brandclr {
         padding: 16px 20px !important;
@@ -130,6 +160,25 @@
         width: 90% !important;
     }
 
+    #ib-sec-two .content {
+        margin-top: 40px !important;
+    }
+
+    #ib-sec-two .services-item-heading {
+        font-size: 23px !important;
+        line-height: 30px !important;
+    }
+    #ib-sec-two .services .services-content .services-header{
+        font-size: 23px !important;
+        line-height: 30px !important;
+        width: 100%;
+        display: block;
+    }
+    #ib-sec-two .services .services-content .services-header::after{
+        right: 0px !important;
+        width: 9px !important;
+        height: 15px !important;
+    }
     #ib-sec-treatments {
         padding-top: 80px !important;
         padding-bottom: 40px !important;
@@ -140,13 +189,12 @@
     }
 
     #ib-sec-two,
-    #ib-sec-testimonial,
     #ib-sec-steps {
         padding: 80px 0px !important;
     }
 
     #ib-sec-steps .ib-timeline {
-        padding: 0px 25px;
+        padding: 0px 15px;
     }
 
     #ib-sec-steps .ib-timeline .timeline-content-heading {
@@ -155,9 +203,11 @@
     }
 
     .timeline-line {
-        left: 43px !important;
+        top: 30px !important;
+        left: 33px !important;
         height: 70% !important;
     }
+
 
     .ib-timeline-content:before {
         left: 43px !important;
@@ -165,8 +215,46 @@
         transform: translateX(0px) !important;
     }
 
+    #ib-sec-steps .ib-timeline .timeline-number::before {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    #ib-sec-steps .ib-timeline {
+        column-gap: 33px !important;
+    }
+
+    #ib-sec-testimonial {
+        padding-top: 80px !important;
+    }
+
     #ib-sec-testimonial .testimonial-card {
-        margin-top: 80px !important;
+        margin-top: 40px !important;
+    }
+
+    #ib-sec-testimonial .testimonial-card .card-item {
+        margin-bottom: 30px !important;
+    }
+
+    #ib-sec-testimonial .testimonial-card .author .author-stars-place {
+        display: flex;
+        margin-right: 0 !important;
+        column-gap: 10px;
+    }
+
+    #ib-sec-testimonial .testimonial-card .author .author-stars-place img {
+        height: 16px;
+    }
+
+    #ib-sec-testimonial .testimonial-card p {
+        margin-top: 16px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .testimonial-card .slick-prev,
+    .testimonial-card .slick-next {
+        right: auto !important;
+        bottom: -50px !important;
     }
 
     #ib-sec-counter {
@@ -179,7 +267,8 @@
     }
 
     #ib-sec-seven {
-        padding: 60px 0px !important;
+        padding-top: 60px !important;
+        padding-bottom: 120px !important;
     }
 
     #ib-sec-seven .content .ib-card .heading {
@@ -200,9 +289,16 @@
         max-width: 341px !important;
     }
 
+    #ib-sec-nine {
+        width: 100%;
+        height: 302px !important;
+        margin-bottom: 423px !important;
+    }
+
     #ib-sec-nine .content-place {
         width: 100% !important;
         padding: 40px 20px 40px 20px !important;
+        transform: translateY(99%) !important;
     }
 
     #ib-sec-nine .content-place .content p {
@@ -219,7 +315,8 @@
     }
 
     #ib-sec-faq {
-        padding: 50px 0px !important;
+        padding-top: 100px !important;
+        padding-bottom: 64px !important;
     }
 
     #ib-sec-faq a.heading {
@@ -237,30 +334,35 @@
     }
 
     footer {
-        padding-top: 70px !important;
-        padding-bottom: 70px !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
         padding-left: 18px;
         padding-right: 18px;
     }
-    footer .footer-logo{
+
+    footer .footer-logo {
         margin-bottom: 60px;
     }
-    .footer-menu-heading-arrow{
+
+    .footer-menu-heading-arrow {
         display: block !important;
         transition: transform 0.5s ease-out;
     }
+
     .ib-footer-menu {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease-out;
     }
-    footer .ib-footer-menu{
+
+    footer .ib-footer-menu {
         margin-top: 24px;
     }
+
     .footer-menu-heading-arrow.open {
         transform: rotate(180deg);
     }
-    
+
     footer .ib-footer-bottom {
         margin-top: 50px !important;
     }
@@ -268,14 +370,15 @@
     footer .ib-footer-bottom ul {
         flex-direction: column !important;
     }
-    footer .ib-footer-bottom ul li:not(:last-child){
+
+    footer .ib-footer-bottom ul li:not(:last-child) {
         margin-bottom: 15px;
     }
+
     footer .ib-footer-bottom ul li:first-child,
     footer .ib-footer-bottom ul li:nth-child(2),
     footer .ib-footer-bottom ul li:nth-child(3),
-    footer .ib-footer-bottom ul li:last-child
-    {
+    footer .ib-footer-bottom ul li:last-child {
         order: unset !important;
     }
 }
@@ -305,4 +408,92 @@
     #ib-sec-testimonial .testimonial-card {
         max-width: 95% !important;
     }
+}
+
+@media (max-width:991px) {
+    #ib-sec-two .services.active .services-content {
+        flex-direction: column;
+        row-gap: 20px;
+        align-items: flex-start !important;
+    }
+    #ib-sec-two .services.active .services-content div,
+    #ib-sec-two .services.active .services-content img{
+        width: 100%;
+    }
+
+    .testimonial-card .slick-next {
+        left: 40px !important;
+    }
+
+    #ib-sec-nine .container {
+        padding: 0;
+    }
+
+    #header-menu {
+        transition: all .7s;
+        width: 100%;
+    }
+
+    #header-menu.open {
+        background-color: #fff;
+    }
+
+    #header-menu ul {
+        text-align: left !important;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: all .5s;
+        background-color: #fff;
+        padding-top: 87px;
+    }
+
+    #header-menu ul.open {
+        transform: translateX(0%);
+    }
+
+    #header-menu ul li.header-logo {
+        display: none !important;
+    }
+
+    #header-menu ul li a {
+        color: #000 !important;
+    }
+
+    #header-menu ul li a::after {
+        filter: invert(1);
+    }
+
+    #header-menu ul li {
+        display: block !important;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.5s, transform 0.7s;
+        margin-right: 0px !important;
+        padding: 0px 16px;
+        margin-top: 12px;
+        margin-bottom: 24px;
+    }
+
+    #header-menu ul li.animate-in {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    #header-menu ul li.header-logo {
+        display: none !important;
+    }
+
+    #header-menu .mob-menu {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 99999;
+    }
+
 }

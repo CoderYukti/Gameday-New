@@ -27,6 +27,31 @@
 
 <body>
     <div class="container-fluid ib-full-width">
+        <header id="header-menu">
+            <div class="container">
+                <nav>
+                    <div class="mob-menu">
+                        <div class="header-logo-mob">
+                            <a href=""><img src="images/full-logo-white.png" alt=""></a>
+                        </div>
+                        <div class="humburger">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Locations</a></li>
+                        <li><a href="#">About</a></li>
+                        <li class="header-logo">
+                            <a href="#"><img src="images/full-logo-white.png" alt=""></a>
+                        </li>
+                        <li><a href="#">Book Appointment</a></li>
+                        <li><a href="#">Get Free Testosterone Test</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
         <section id="banner" class="d-flex align-content-center flex-wrap">
             <video id="bannerVideo" loop muted autoplay>
                 <source src="images/Gameday Men's Health - Fresno, CA.mp4" type="video/mp4">
@@ -54,6 +79,56 @@
                     <h3>Made for every man’s health journey</h3>
                     <p>Whether you're chasing peak performance, reigniting intimacy, or simply feeling your best, we
                         keep you going with custom, expert-backed care.</p>
+                </div>
+                <div class="content">
+                    <div class="services active">
+                        <div class="services-item-heading">Testosterone Health</div>
+                        <div class="services-content">
+                            <div>
+                                <img src="images/Testosterone-Health-Services.png" class="img-fluid" alt="">
+                            </div>
+                            <div>
+                                <a href="#" class="services-header">Testosterone Health</a>
+                                <p>Optimize energy levels, enhance sex drive, and restore overall vitality with  balanced testosterone levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services">
+                        <div class="services-item-heading">Erectile Dysfunction</div>
+                        <div class="services-content">
+                            <div>
+                                <img src="images/Erectile-Dysfunction-Services.png" class="img-fluid" alt="">
+                            </div>
+                            <div>
+                                <a href="#" class="services-header">Erectile Dysfunction</a>
+                                <p>Elevate your performance and rekindle intimate relationships with discreet,  effective treatments supported by years of experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services">
+                        <div class="services-item-heading">Weight Loss</div>
+                        <div class="services-content">
+                            <div>
+                                <img src="images/Weight-Loss-Services.png" class="img-fluid" alt="">
+                            </div>
+                            <div>
+                                <a href="#" class="services-header">Weight Loss</a>
+                                <p>Boost your confidence and improve quality of life with medical management solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services">
+                        <div class="services-item-heading">Vitamin Injections & Supplements</div>
+                        <div class="services-content">
+                            <div>
+                                <img src="images/Vitamin-Injections-Supplements-Services.png" class="img-fluid" alt="">
+                            </div>
+                            <div>
+                                <a href="#" class="services-header">Vitamin Injections & Supplements</a>
+                                <p>Follow a comprehensive wellness plan that empowers you to live optimally each day.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -263,16 +338,16 @@
             <div class="container">
                 <div class="row row-gap-5">
                     <div class="col-md-4">
-                        <div class="ib-counter-number">40%</div>
+                        <div class="ib-counter-number"><span data-target="40">0</span>%</div>
                         <div class="ib-counter-text">of men by age 45 will have hypogonadism (Low T)</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="ib-counter-number">1 in 4</div>
+                        <div class="ib-counter-number">1 in <span data-target="4">0</span></div>
                         <div class="ib-counter-text">men over 30 in the US (about 30 million) have Low Testosterone
                             levels</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="ib-counter-number">52%</div>
+                        <div class="ib-counter-number"><span data-target="52">0</span>%</div>
                         <div class="ib-counter-text">of all men will struggle with some form of Erectile Dysfunction
                         </div>
                     </div>
@@ -290,7 +365,7 @@
                 </div>
                 <div class="ib-scroll-wrapper">
                     <div class="ib-scroll-trigger">
-                        <div class="row content">
+                        <div class="row content mob-slider">
                             <div class="ib-card col-md-11">
                                 <img src="images/Rectangle12569.png" class="img-fluid" alt="">
                                 <div class="heading">Get quick assessments and treatments</div>
@@ -360,14 +435,14 @@
         <section id="ib-sec-blogs">
             <div class="container">
                 <div class="row align-items-center row-gap-4">
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-3">
                         <h3 class="float-md-start">Blog</h3>
                     </div>
-                    <div class="offset-md-5 col-md-4 text-center">
-                        <a href="#" class="ib-btn-outline float-md-end">READ ALL BLOG</a>
+                    <div class="offset-md-5 col-md-4">
+                        <a href="#" class="ib-btn-outline float-md-end">Read More</a>
                     </div>
                 </div>
-                <div class="row content row-gap-4">
+                <div class="row content row-gap-4 blogs-slider">
                     <div class="col-md-4">
                         <div>
                             <img src="images/img.png" class="img-fluid" alt="">
@@ -467,7 +542,8 @@
                     <div class="offset-lg-1 col-lg-2 offset-md-2 col-md-6">
                         <div class="ib-footer-menu-heading d-flex justify-content-between">
                             <div>Services</div>
-                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid" alt=""></div>
+                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid"
+                                    alt=""></div>
                         </div>
                         <div class="ib-footer-menu">
                             <ul>
@@ -489,7 +565,8 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="ib-footer-menu-heading d-flex justify-content-between">
                             <div>Treatments</div>
-                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid" alt=""></div>
+                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid"
+                                    alt=""></div>
                         </div>
                         <div class="ib-footer-menu">
                             <ul>
@@ -535,7 +612,8 @@
                     <div class="col-lg-2 col-md-6">
                         <div class="ib-footer-menu-heading d-flex justify-content-between">
                             <div>Explore</div>
-                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid" alt=""></div>
+                            <div class="footer-menu-heading-arrow"><img src="images/down-arrow.png" class="img-fluid"
+                                    alt=""></div>
                         </div>
                         <div class="ib-footer-menu">
                             <ul>
@@ -563,7 +641,7 @@
                         <li><a href="#">Cookie Policy</a></li>
                         <li><a href="#">Cookie Settings</a></li>
                         <li><a href="#">TOS / Privacy Policy</a></li>
-                        <li>© 2024 GameDay Men’s Health. All rights reserved.</li>
+                        <li>© <span id="currentYear"></span> GameDay Men’s Health. All rights reserved.</li>
                     </ul>
                 </div>
             </div>
