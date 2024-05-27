@@ -10,25 +10,25 @@ html, body {
 
 @font-face {
     font-family: HelveticaNowDisplay-Regular;
-    src: url(../font/HelveticaNowDisplay-Regular.ttf);
+    src: url(../font/HelveticaNowDisplay-Regular.otf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: HelveticaNowDisplay-Bold;
-    src: url(../font/HelveticaNowDisplay-Bold.ttf);
+    src: url(../font/HelveticaNowDisplay-Bd.otf);
     font-weight: 700;
 }
 
 @font-face {
     font-family: HelveticaNowDisplay-ExtraBold;
-    src: url(../font/HelveticaNowDisplay-ExtraBold.ttf);
+    src: url(../font/HelveticaNowDisplay-XBd.otf);
     font-weight: 800;
 }
 
 @font-face {
     font-family: HelveticaNowDisplay-Black;
-    src: url(../font/HelveticaNowDisplay-Black.ttf);
+    src: url(../font/HelveticaNowDisplay-Blk.otf);
     font-weight: 900;
 }
 
@@ -276,7 +276,7 @@ button {
 
 }
 #header-menu ul li:nth-child(4){
-    margin-left: 67px;
+    margin-left: 65px;
     margin-right: 40px;
 }
 #header-menu ul li:first-child{

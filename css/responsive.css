@@ -168,17 +168,20 @@
         font-size: 23px !important;
         line-height: 30px !important;
     }
-    #ib-sec-two .services .services-content .services-header{
+
+    #ib-sec-two .services .services-content .services-header {
         font-size: 23px !important;
         line-height: 30px !important;
         width: 100%;
         display: block;
     }
-    #ib-sec-two .services .services-content .services-header::after{
+
+    #ib-sec-two .services .services-content .services-header::after {
         right: 0px !important;
         width: 9px !important;
         height: 15px !important;
     }
+
     #ib-sec-treatments {
         padding-top: 80px !important;
         padding-bottom: 40px !important;
@@ -416,8 +419,9 @@
         row-gap: 20px;
         align-items: flex-start !important;
     }
+
     #ib-sec-two .services.active .services-content div,
-    #ib-sec-two .services.active .services-content img{
+    #ib-sec-two .services.active .services-content img {
         width: 100%;
     }
 
@@ -428,6 +432,54 @@
     #ib-sec-nine .container {
         padding: 0;
     }
+
+    .hamburger{
+        cursor:pointer; 
+        position:relative; 
+        display: flex;
+        justify-content:center; 
+        align-items:center; 
+        width:30px; 
+        height:30px; 
+        overflow: hidden;
+    }
+    .hamburger .hamburger-icon::before {
+        transform: translate(-15px, -11px);
+    }
+    .hamburger .hamburger-icon::after {
+        transform: translate(-15px, 7px);
+    }
+    .hamburger::before,
+    .hamburger::after,
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: #fff;
+        transition: all .5s ease-in-out;
+    }
+    .hamburger.open .hamburger-icon::before {
+        transform: translate(25px, -11px);
+    }
+    .hamburger.open .hamburger-icon::after {
+        transform: translate(-70px, 7px);
+    }
+    .hamburger.open::before,
+    .hamburger.open::after,
+    .hamburger.open .hamburger-icon::before,
+    .hamburger.open .hamburger-icon::after {
+        background: #000 !important;
+    }
+    .hamburger.open::before{
+        transform: rotate(-45deg);
+    }
+    .hamburger.open::after{
+        transform: rotate(45deg);
+    }
+
+
 
     #header-menu {
         transition: all .7s;

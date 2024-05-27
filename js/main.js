@@ -1,17 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  $('.hamburger').click(function () {
+    $(this).toggleClass('open');
+  });
+
+
   const services = document.querySelectorAll('#ib-sec-two .services');
 
   services.forEach(service => {
-      service.addEventListener('mouseenter', function () {
-          const activeService = document.querySelector('#ib-sec-two .services.active');
-          if (activeService) {
-              activeService.classList.remove('active');
-          }
-          service.classList.add('active');
-      });
+    service.addEventListener('mouseenter', function () {
+      const activeService = document.querySelector('#ib-sec-two .services.active');
+      if (activeService) {
+        activeService.classList.remove('active');
+      }
+      service.classList.add('active');
+    });
   });
-  
+
 
 
 
@@ -126,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  const hamburger = document.querySelector('.humburger');
+  const hamburger = document.querySelector('.hamburger');
   const headerMenu = document.querySelector('#header-menu');
   const headerLogoMob = document.querySelector('.header-logo-mob');
 
@@ -285,16 +290,8 @@ $('.testimonial-card').slick({
   autoplay: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        arrows: true,
-        dots: false,
-        autoplay: true,
-      }
-    }
-  ]
+  arrows: true,
+  dots: false
 });
 // testimonials slider end
 
@@ -361,4 +358,3 @@ $(document).ready(function () {
   });
 });
 // footer menu drop down end
-
