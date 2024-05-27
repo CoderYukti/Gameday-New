@@ -482,12 +482,8 @@
 
 
     #header-menu {
-        transition: all .7s;
         width: 100%;
-    }
-
-    #header-menu.open {
-        background-color: #fff;
+        padding: 0px !important;
     }
 
     #header-menu ul {
@@ -504,6 +500,11 @@
         padding-top: 87px;
     }
 
+    #header-menu ul {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
     #header-menu ul.open {
         transform: translateX(0%);
     }
@@ -546,6 +547,11 @@
         justify-content: space-between;
         position: relative;
         z-index: 99999;
+        padding: 20px 0px;
+    }
+    #header-menu.open .mob-menu {
+        background: #fff;
+        transition: all 4s;
     }
 
 }

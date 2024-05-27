@@ -255,15 +255,16 @@ button {
     width: 100%;
     padding: 20px 0px;
 }
-#header-menu ul{
+#header-menu nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
 }
 #header-menu ul li{
     display: inline-block;
 }
-#header-menu ul li{
-    margin-right: 24px;
-}
+
 #header-menu ul li a{
     color: #fff;
     text-decoration: none;
@@ -275,13 +276,10 @@ button {
     position: relative;
 
 }
-#header-menu ul li:nth-child(4){
-    margin-left: 65px;
-    margin-right: 40px;
-}
+
 #header-menu ul li:first-child{
-    margin-right: 44px;
-}
+    margin-right: 20px;
+} 
 #header-menu ul li:first-child a::after{
     content: "";
     background-image: url(../images/down-arrow-white.png);
@@ -294,6 +292,9 @@ button {
     right: -18px;
     top: 50%;
     transform: translateY(-50%);
+}
+#header-menu ul li:nth-child(4){
+    margin-left: 41px;
 }
 #header-menu ul li:last-child{
     margin-right: 35px;

@@ -134,24 +134,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector('.hamburger');
   const headerMenu = document.querySelector('#header-menu');
   const headerLogoMob = document.querySelector('.header-logo-mob');
-
+  
   if (hamburger && headerMenu && headerLogoMob) {
     hamburger.addEventListener('click', function () {
       headerMenu.classList.toggle('open'); // Toggle 'open' class on #header-menu
       const menuList = headerMenu.querySelector('ul');
       const menuItems = menuList.querySelectorAll('li');
-
+  
       if (menuList) {
         menuList.classList.toggle('open'); // Toggle 'open' class on ul element
       }
-
+  
       // Add or remove CSS property 'filter' directly to the .header-logo-mob element
       if (headerLogoMob.style.filter === 'invert(1)') {
         headerLogoMob.style.filter = ''; // Remove filter if already inverted
       } else {
         headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
       }
-
+  
       // Animate list items
       if (menuList.classList.contains('open')) {
         menuItems.forEach((item, index) => {
@@ -159,13 +159,17 @@ document.addEventListener("DOMContentLoaded", function () {
             item.classList.add('animate-in');
           }, index * 150); // 100ms delay for each item
         });
+        document.documentElement.style.overflowY = 'hidden'; // Add overflow-y: hidden to <html> tag
       } else {
         menuItems.forEach(item => {
           item.classList.remove('animate-in');
         });
+        document.documentElement.style.overflowY = ''; // Remove overflow-y: hidden from <html> tag
       }
     });
   }
+  
+  
 
 
 
