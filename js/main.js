@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
         menuItems.forEach((item, index) => {
           setTimeout(() => {
             item.classList.add('animate-in');
-          }, index * 150); // 100ms delay for each item
+          }, index * 150); // 150ms delay for each item
         });
         document.documentElement.style.overflowY = 'hidden'; // Add overflow-y: hidden to <html> tag
       } else {
