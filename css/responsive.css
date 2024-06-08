@@ -186,7 +186,9 @@
         padding-top: 80px !important;
         padding-bottom: 40px !important;
     }
-
+    #ib-sec-treatments .ib-card-slider .slick-track {
+        column-gap: 0px !important;
+    }
     #ib-sec-treatments .content {
         margin-top: 40px !important;
     }
@@ -387,19 +389,56 @@
 }
 
 
-@media (min-width:1024px) and (max-width:1300px) {
-    .ib-card-slider .slick-next {
-        right: 20px !important;
+@media (min-width:992px) and (max-width:1300px) {
+    .ib-card-slider .slick-dots li button:before{
+        color: #727272 !important;
+        font-size: 10px;
     }
-
-    .ib-card-slider .slick-prev {
-        left: -20px !important;
+    .ib-card-slider .slick-dots li.slick-active button:before{
+        color: #000 !important;
     }
-
-    .ib-card-slider .slick-next:before,
-    .ib-card-slider .slick-prev:before {
-        width: 50px !important;
-        height: 50px !important;
+    
+    .ib-card-slider .slick-dots{
+        bottom: -46px !important;
+    }
+    .ib-card-slider .slick-prev, 
+    .ib-card-slider .slick-next{
+        top: auto;
+        bottom: -88px;
+        width: auto;
+        background-color: #F1F1F1;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        z-index: 999999;
+    }
+    .ib-card-slider .slick-prev{
+        left: 0px !important;
+    }
+    .ib-card-slider .slick-next{
+        right: 0px !important;
+    }
+    .ib-card-slider .slick-next:before{
+        content: "";
+        background-image: url(../images/next-Button.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 17px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ib-card-slider .slick-prev:before{
+        content: "";
+        background-image: url(../images/prev-Button.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 17px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .ib-card-slider {
@@ -414,6 +453,58 @@
 }
 
 @media (max-width:991px) {
+
+    .ib-card-slider .slick-dots li button:before{
+        color: #727272 !important;
+        font-size: 10px;
+    }
+    .ib-card-slider .slick-dots li.slick-active button:before{
+        color: #000 !important;
+    }
+    
+    .ib-card-slider .slick-dots{
+        bottom: -46px !important;
+    }
+    .ib-card-slider .slick-prev, 
+    .ib-card-slider .slick-next{
+        top: auto;
+        bottom: -88px;
+        width: auto;
+        background-color: #F1F1F1;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        z-index: 999999;
+    }
+    .ib-card-slider .slick-prev{
+        left: 0px !important;
+    }
+    .ib-card-slider .slick-next{
+        right: 0px !important;
+    }
+    .ib-card-slider .slick-next:before{
+        content: "";
+        background-image: url(../images/next-Button.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 17px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ib-card-slider .slick-prev:before{
+        content: "";
+        background-image: url(../images/prev-Button.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 17px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     #ib-sec-two .services.active .services-content {
         flex-direction: column;
         row-gap: 20px;

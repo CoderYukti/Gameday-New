@@ -5,6 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+  window.addEventListener('scroll', function() {
+    var header = document.getElementById('header-menu');
+    if (window.scrollY > 400) {
+        header.classList.add('scroll');
+    } else if (window.scrollY === 0) {
+        header.classList.remove('scroll');
+    }
+});
+
+
   const services = document.querySelectorAll('#ib-sec-two .services');
 
   services.forEach(service => {
@@ -134,24 +144,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector('.hamburger');
   const headerMenu = document.querySelector('#header-menu');
   const headerLogoMob = document.querySelector('.header-logo-mob');
-  
+
   if (hamburger && headerMenu && headerLogoMob) {
     hamburger.addEventListener('click', function () {
       headerMenu.classList.toggle('open'); // Toggle 'open' class on #header-menu
       const menuList = headerMenu.querySelector('ul');
       const menuItems = menuList.querySelectorAll('li');
-  
+
       if (menuList) {
         menuList.classList.toggle('open'); // Toggle 'open' class on ul element
       }
-  
+
       // Add or remove CSS property 'filter' directly to the .header-logo-mob element
       if (headerLogoMob.style.filter === 'invert(1)') {
         headerLogoMob.style.filter = ''; // Remove filter if already inverted
       } else {
         headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
       }
-  
+
       // Animate list items
       if (menuList.classList.contains('open')) {
         menuItems.forEach((item, index) => {
@@ -168,8 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  
-  
+
+
 
 
 
@@ -224,48 +234,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-// banner video play/pause start
-const video = document.getElementById('bannerVideo');
-const playBtn = document.getElementById('playBtn');
-const pauseBtn = document.getElementById('pauseBtn');
-
-playBtn.addEventListener('click', () => {
-  video.play();
-  playBtn.style.display = 'none'; // Hide play button
-  pauseBtn.style.display = 'block'; // Show pause button
-});
-
-pauseBtn.addEventListener('click', () => {
-  video.pause();
-  pauseBtn.style.display = 'none'; // Hide pause button
-  playBtn.style.display = 'block'; // Show play button
-});
-// banner video play/pause end
-
 // treatments card slider start
 $('.ib-card-slider').slick({
   infinite: true,
   speed: 300,
   autoplay: true,
+  arrows: true,
   slidesToShow: 3,
   slidesToScroll: 1,
   responsive: [
     {
-      breakpoint: 1300,
+      breakpoint: 1301,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
+        dots: true,
       }
     },
     {
-      breakpoint: 1024,
+      breakpoint: 992,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
-        arrows: false,
         dots: true,
       }
     },
@@ -274,8 +264,6 @@ $('.ib-card-slider').slick({
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        arrows: false,
         dots: true
       }
     }
@@ -302,43 +290,43 @@ $('.testimonial-card').slick({
 
 
 // blogs slider for mobile start
-$(document).ready(function () {
-  function toggleSlick() {
-    if ($(window).width() < 992) {
-      if (!$('.blogs-slider').hasClass('slick-initialized')) {
-        $('.blogs-slider').slick({
-          infinite: true,
-          speed: 300,
-          autoplay: true,
-          slidesToScroll: 1,
-          arrows: true,
-          dots: true,
-          responsive: [
-            {
-              breakpoint: 991,
-              settings: {
-                slidesToShow: 2,
-              }
-            },
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 1,
-              }
-            }
-          ]
-        });
-      }
-    } else {
-      if ($('.blogs-slider').hasClass('slick-initialized')) {
-        $('.blogs-slider').slick('unslick');
-      }
-    }
-  }
+// $(document).ready(function () {
+//   function toggleSlick() {
+//     if ($(window).width() < 992) {
+//       if (!$('.blogs-slider').hasClass('slick-initialized')) {
+//         $('.blogs-slider').slick({
+//           infinite: true,
+//           speed: 300,
+//           autoplay: true,
+//           slidesToScroll: 1,
+//           arrows: true,
+//           dots: true,
+//           responsive: [
+//             {
+//               breakpoint: 991,
+//               settings: {
+//                 slidesToShow: 2,
+//               }
+//             },
+//             {
+//               breakpoint: 767,
+//               settings: {
+//                 slidesToShow: 1,
+//               }
+//             }
+//           ]
+//         });
+//       }
+//     } else {
+//       if ($('.blogs-slider').hasClass('slick-initialized')) {
+//         $('.blogs-slider').slick('unslick');
+//       }
+//     }
+//   }
 
-  toggleSlick();
-  $(window).on('resize', toggleSlick);
-});
+//   toggleSlick();
+//   $(window).on('resize', toggleSlick);
+// });
 // blogs slider for mobile end
 
 
