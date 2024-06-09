@@ -440,7 +440,7 @@ button {
 /* banner start */
 #banner {
     background: url(../images/home-page-bg.png) no-repeat center;
-    background-size: cover;
+    background-size: cover !important;
     height: calc(85vh + 200px);
     max-height: 1086px;
     position: relative;
@@ -622,8 +622,11 @@ button {
 
 /* steps section start */
 #ib-sec-steps {
-    padding: 120px 0px;
+    padding: 50px 0px;
     background-color: #F1F1F1;
+}
+#ib-sec-steps .row{
+    padding-top: 50px;
 }
 
 #ib-sec-steps h3 {

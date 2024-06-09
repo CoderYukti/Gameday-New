@@ -144,6 +144,7 @@
     #banner {
         background: url(../images/home-page-bg-mobile.png) no-repeat center !important;
         height: 797px !important;
+        background-position-y: 86% !important;
     }
     #banner .banner-content {
         margin-top: 100px;
@@ -157,7 +158,6 @@
         flex: 0 0 auto;
         width: 50%;
         border-bottom: none !important;
-        padding: 16px 12px !important;
     }
     #ib-sec-two .services-item-heading {
         display: none !important;
@@ -180,7 +180,6 @@
         row-gap: 20px;
     }
     #ib-sec-two .services .services-content img{
-        width: 163px;
         height: 168px;
         object-fit: cover;
     }
@@ -526,6 +525,9 @@
         flex-direction: column;
         row-gap: 20px;
         align-items: flex-start !important;
+    }
+    #ib-sec-two .content .services{
+        padding: 16px 12px !important;
     }
     #ib-sec-two .services.active .services-content div,
     #ib-sec-two .services.active .services-content img {

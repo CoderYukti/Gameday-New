@@ -1,53 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Function to detect screen size changes and force a hard refresh
+  (function () {
+    let initialWidth = window.innerWidth;
+    
+    window.addEventListener('resize', function () {
+      if (window.innerWidth !== initialWidth) {
+        location.reload(); // Hard refresh the page
+      }
+    });
+  })();
 
-  // Handle hamburger menu click
+
+  $('.hamburger').click(function () {
+    $(this).toggleClass('open');
+  });
+
   const hamburger = document.querySelector('.hamburger');
-  if (hamburger) {
+  const headerMenu = document.querySelector('#header-menu');
+  const headerLogoMob = document.querySelector('.header-logo-mob');
+
+  if (hamburger && headerMenu && headerLogoMob) {
     hamburger.addEventListener('click', function () {
-      this.classList.toggle('open');
-      const headerMenu = document.getElementById('header-menu');
-      const headerLogoMob = document.querySelector('.header-logo-mob');
-      if (headerMenu && headerLogoMob) {
-        headerMenu.classList.toggle('open');
-        const menuList = headerMenu.querySelector('ul');
-        const menuItems = menuList.querySelectorAll('li');
-        if (menuList) menuList.classList.toggle('open');
-        if (headerLogoMob.style.filter === 'invert(1)') {
-          headerLogoMob.style.filter = '';
-        } else {
-          headerLogoMob.style.filter = 'invert(1)';
-        }
-        if (menuList.classList.contains('open')) {
-          menuItems.forEach((item, index) => {
-            setTimeout(() => item.classList.add('animate-in'), index * 150);
-          });
-          document.documentElement.style.overflowY = 'hidden';
-        } else {
-          menuItems.forEach(item => item.classList.remove('animate-in'));
-          document.documentElement.style.overflowY = '';
-        }
+      headerMenu.classList.toggle('open'); // Toggle 'open' class on #header-menu
+      const menuList = headerMenu.querySelector('ul');
+      const menuItems = menuList.querySelectorAll('li');
+
+      if (menuList) {
+        menuList.classList.toggle('open'); // Toggle 'open' class on ul element
+      }
+
+      // Add or remove CSS property 'filter' directly to the .header-logo-mob element
+      if (headerLogoMob.style.filter === 'invert(1)') {
+        headerLogoMob.style.filter = ''; // Remove filter if already inverted
+      } else {
+        headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
+      }
+
+      // Animate list items
+      if (menuList.classList.contains('open')) {
+        menuItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('animate-in');
+          }, index * 150); // 150ms delay for each item
+        });
+        document.documentElement.style.overflowY = 'hidden'; // Add overflow-y: hidden to <html> tag
+      } else {
+        menuItems.forEach(item => {
+          item.classList.remove('animate-in');
+        });
+        document.documentElement.style.overflowY = ''; // Remove overflow-y: hidden from <html> tag
       }
     });
   }
 
-  // Handle scroll for header menu
+
+
+
   window.addEventListener('scroll', function () {
-    const header = document.getElementById('header-menu');
-    if (header) {
-      if (window.scrollY > 400) {
-        header.classList.add('scroll');
-      } else if (window.scrollY === 0) {
-        header.classList.remove('scroll');
-      }
+    var header = document.getElementById('header-menu');
+    if (window.scrollY > 400) {
+      header.classList.add('scroll');
+    } else if (window.scrollY === 0) {
+      header.classList.remove('scroll');
     }
   });
 
-  // Handle services hover
+  // Services hover effect
   const services = document.querySelectorAll('#ib-sec-two .services');
   services.forEach(service => {
     service.addEventListener('mouseenter', function () {
-      const activeService = document.querySelector('#ib-sec-two .services.active');
-      if (activeService) activeService.classList.remove('active');
+      document.querySelector('#ib-sec-two .services.active')?.classList.remove('active');
       service.classList.add('active');
     });
   });
@@ -150,7 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial call and bind resize event
   toggleSlickGsap();
-  $(window).on('resize', toggleSlickGsap);
+  $(window).on('resize', function () {
+    // Clear previous GSAP animations and ScrollTriggers
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    toggleSlickGsap();
+  });
 
   // Number counter animation
   const counters = document.querySelectorAll('.ib-counter-number span');
