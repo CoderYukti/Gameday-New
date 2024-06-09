@@ -74,16 +74,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // GSAP and ScrollTrigger for vertical progress bar
+
+
+  // vertical progress bar on scroll start
   gsap.registerPlugin(ScrollTrigger);
+
+  // Pin the timeline and animate the line filling
   ScrollTrigger.create({
     trigger: '#ib-sec-steps',
-    start: 'center center',
-    end: '+=500px',
-    pin: true,
-    pinSpacing: true,
-    scrub: true,
-    markers: false,
+    start: 'center center',        // Start when the top of the timeline hits the top of the viewport
+    end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
+    pin: true,                     // Pin the timeline
+    pinSpacing: true,              // Maintain spacing
+    scrub: true,                   // Smooth scrubbing
+    markers: false,                 // Remove this in production
     invalidateOnRefresh: true,
     onUpdate: self => {
       gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
@@ -91,10 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Function to update active timeline number
   function updateActiveTimelineNumber(progress) {
     const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
     const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
     const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+
     timelineNumbers.forEach((number, index) => {
       if (index <= activeIndex) {
         if (!number.classList.contains('active')) {
@@ -106,11 +112,16 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
       }
     });
+
+    // Ensure the active class is removed from the first number if the fill height is 0
     if (progress === 0) {
       timelineNumbers[0].classList.remove('active');
       gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
     }
   }
+  // vertical progress bar on scroll end
+
+  
 
   // Toggle Slick and GSAP animations on resize
   function toggleSlickGsap() {
@@ -257,15 +268,24 @@ document.addEventListener("DOMContentLoaded", function () {
     dots: false
   });
 
-  // Footer menu dropdown
+// footer menu drop down start
+$(document).ready(function () {
   $('.footer-menu-heading-arrow').click(function () {
     var menu = $(this).parent().next('.ib-footer-menu');
     var isOpen = menu.css('max-height') !== '0px' && menu.css('max-height') !== 'none';
+
+    // Close all menus and remove rotation from all arrows
     $('.ib-footer-menu').css('max-height', '0px');
     $('.footer-menu-heading-arrow').removeClass('open');
-    if (!isOpen) {
+
+    // Toggle the clicked menu
+    if (isOpen) {
+      menu.css('max-height', '0px');
+    } else {
       menu.css('max-height', menu.prop('scrollHeight') + 'px');
       $(this).addClass('open');
     }
   });
+});
+// footer menu drop down end
 });
