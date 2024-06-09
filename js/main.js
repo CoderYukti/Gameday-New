@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to detect screen size changes and force a hard refresh
-  (function () {
-    let initialWidth = window.innerWidth;
-    
-    window.addEventListener('resize', function () {
-      if (window.innerWidth !== initialWidth) {
-        location.reload(); // Hard refresh the page
-      }
-    });
-  })();
-
 
   $('.hamburger').click(function () {
     $(this).toggleClass('open');
@@ -121,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // vertical progress bar on scroll end
 
-  
+
 
   // Toggle Slick and GSAP animations on resize
   function toggleSlickGsap() {
@@ -268,24 +257,36 @@ document.addEventListener("DOMContentLoaded", function () {
     dots: false
   });
 
-// footer menu drop down start
-$(document).ready(function () {
-  $('.footer-menu-heading-arrow').click(function () {
-    var menu = $(this).parent().next('.ib-footer-menu');
-    var isOpen = menu.css('max-height') !== '0px' && menu.css('max-height') !== 'none';
+  // footer menu drop down start
+  $(document).ready(function () {
+    $('.footer-menu-heading-arrow').click(function () {
+      var menu = $(this).parent().next('.ib-footer-menu');
+      var isOpen = menu.css('max-height') !== '0px' && menu.css('max-height') !== 'none';
 
-    // Close all menus and remove rotation from all arrows
-    $('.ib-footer-menu').css('max-height', '0px');
-    $('.footer-menu-heading-arrow').removeClass('open');
+      // Close all menus and remove rotation from all arrows
+      $('.ib-footer-menu').css('max-height', '0px');
+      $('.footer-menu-heading-arrow').removeClass('open');
 
-    // Toggle the clicked menu
-    if (isOpen) {
-      menu.css('max-height', '0px');
-    } else {
-      menu.css('max-height', menu.prop('scrollHeight') + 'px');
-      $(this).addClass('open');
-    }
+      // Toggle the clicked menu
+      if (isOpen) {
+        menu.css('max-height', '0px');
+      } else {
+        menu.css('max-height', menu.prop('scrollHeight') + 'px');
+        $(this).addClass('open');
+      }
+    });
   });
-});
-// footer menu drop down end
+  // footer menu drop down end
+
+
+  // Function to detect screen size changes and force a hard refresh
+  (function () {
+    let initialWidth = window.innerWidth;
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth !== initialWidth) {
+        location.reload(); // Hard refresh the page
+      }
+    });
+  })();
 });
