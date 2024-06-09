@@ -279,14 +279,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // footer menu drop down end
 
 
-  // Function to detect screen size changes and force a hard refresh
-  (function () {
-    let initialWidth = window.innerWidth;
+  // // Function to detect screen size changes and force a hard refresh
+  // (function () {
+  //   let initialWidth = window.innerWidth;
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth !== initialWidth) {
-        location.reload(); // Hard refresh the page
-      }
-    });
-  })();
+  //   window.addEventListener('resize', function () {
+  //     if (window.innerWidth !== initialWidth) {
+  //       location.reload(); // Hard refresh the page
+  //     }
+  //   });
+  // })();
 });
