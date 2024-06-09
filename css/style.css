@@ -303,7 +303,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 9999999;
     width: 100%;
     padding: 20px 0px;
 }
@@ -345,7 +345,7 @@ button {
     text-transform: uppercase;
     font-family: HelveticaNowDisplay-Regular;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 24px;
     position: relative;
 
@@ -441,7 +441,8 @@ button {
 #banner {
     background: url(../images/home-page-bg.png) no-repeat center;
     background-size: cover;
-    height: 1086px;
+    height: calc(85vh + 200px);
+    max-height: 1086px;
     position: relative;
 }
 

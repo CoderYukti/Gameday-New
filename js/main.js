@@ -1,47 +1,67 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  $('.hamburger').click(function () {
-    $(this).toggleClass('open');
+  // Handle hamburger menu click
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', function () {
+      this.classList.toggle('open');
+      const headerMenu = document.getElementById('header-menu');
+      const headerLogoMob = document.querySelector('.header-logo-mob');
+      if (headerMenu && headerLogoMob) {
+        headerMenu.classList.toggle('open');
+        const menuList = headerMenu.querySelector('ul');
+        const menuItems = menuList.querySelectorAll('li');
+        if (menuList) menuList.classList.toggle('open');
+        if (headerLogoMob.style.filter === 'invert(1)') {
+          headerLogoMob.style.filter = '';
+        } else {
+          headerLogoMob.style.filter = 'invert(1)';
+        }
+        if (menuList.classList.contains('open')) {
+          menuItems.forEach((item, index) => {
+            setTimeout(() => item.classList.add('animate-in'), index * 150);
+          });
+          document.documentElement.style.overflowY = 'hidden';
+        } else {
+          menuItems.forEach(item => item.classList.remove('animate-in'));
+          document.documentElement.style.overflowY = '';
+        }
+      }
+    });
+  }
+
+  // Handle scroll for header menu
+  window.addEventListener('scroll', function () {
+    const header = document.getElementById('header-menu');
+    if (header) {
+      if (window.scrollY > 400) {
+        header.classList.add('scroll');
+      } else if (window.scrollY === 0) {
+        header.classList.remove('scroll');
+      }
+    }
   });
 
-
-  window.addEventListener('scroll', function() {
-    var header = document.getElementById('header-menu');
-    if (window.scrollY > 400) {
-        header.classList.add('scroll');
-    } else if (window.scrollY === 0) {
-        header.classList.remove('scroll');
-    }
-});
-
-
+  // Handle services hover
   const services = document.querySelectorAll('#ib-sec-two .services');
-
   services.forEach(service => {
     service.addEventListener('mouseenter', function () {
       const activeService = document.querySelector('#ib-sec-two .services.active');
-      if (activeService) {
-        activeService.classList.remove('active');
-      }
+      if (activeService) activeService.classList.remove('active');
       service.classList.add('active');
     });
   });
 
-
-
-
-  // vertical progress bar on scroll start
+  // GSAP and ScrollTrigger for vertical progress bar
   gsap.registerPlugin(ScrollTrigger);
-
-  // Pin the timeline and animate the line filling
   ScrollTrigger.create({
     trigger: '#ib-sec-steps',
-    start: 'center center',        // Start when the top of the timeline hits the top of the viewport
-    end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
-    pin: true,                     // Pin the timeline
-    pinSpacing: true,              // Maintain spacing
-    scrub: true,                   // Smooth scrubbing
-    markers: false,                 // Remove this in production
+    start: 'center center',
+    end: '+=500px',
+    pin: true,
+    pinSpacing: true,
+    scrub: true,
+    markers: false,
     invalidateOnRefresh: true,
     onUpdate: self => {
       gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
@@ -49,12 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Function to update active timeline number
   function updateActiveTimelineNumber(progress) {
     const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
     const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
     const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
-
     timelineNumbers.forEach((number, index) => {
       if (index <= activeIndex) {
         if (!number.classList.contains('active')) {
@@ -66,22 +84,18 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
       }
     });
-
-    // Ensure the active class is removed from the first number if the fill height is 0
     if (progress === 0) {
       timelineNumbers[0].classList.remove('active');
       gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
     }
   }
-  // vertical progress bar on scroll end
 
-
-
-  // horizontal card scroll for desktop and slider for mobile start
-  $(document).ready(function () {
-    function toggleSlickGsap() {
-      if ($(window).width() < 992) {
-        $('.mob-slider').slick({
+  // Toggle Slick and GSAP animations on resize
+  function toggleSlickGsap() {
+    const mobSlider = $('.mob-slider');
+    if ($(window).width() < 992) {
+      if (!mobSlider.hasClass('slick-initialized')) {
+        mobSlider.slick({
           responsive: [
             {
               breakpoint: 991,
@@ -109,85 +123,38 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           ]
         });
-      } else {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Horizontal Scroll Animation
-        const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
-        const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
-
-        if (ibscrolltrigger && ibscrollwrapper) {
-          gsap.to(ibscrolltrigger, {
-            x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ibscrollwrapper,
-              start: 'center center', // Adjust start point as needed
-              end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
-              markers: false,
-              pin: ibscrollwrapper,
-              scrub: 3,
-              invalidateOnRefresh: true
-            }
-          });
-        }
+      }
+    } else {
+      if (mobSlider.hasClass('slick-initialized')) {
+        mobSlider.slick('unslick');
+      }
+      const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
+      const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
+      if (ibscrolltrigger && ibscrollwrapper) {
+        gsap.to(ibscrolltrigger, {
+          x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ibscrollwrapper,
+            start: 'center center',
+            end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
+            markers: false,
+            pin: ibscrollwrapper,
+            scrub: 3,
+            invalidateOnRefresh: true
+          }
+        });
       }
     }
-
-    toggleSlickGsap();
-    $(window).on('resize', toggleSlickGsap);
-  });
-  // horizontal card scroll for desktop and slider for mobile end
-
-
-
-  const hamburger = document.querySelector('.hamburger');
-  const headerMenu = document.querySelector('#header-menu');
-  const headerLogoMob = document.querySelector('.header-logo-mob');
-
-  if (hamburger && headerMenu && headerLogoMob) {
-    hamburger.addEventListener('click', function () {
-      headerMenu.classList.toggle('open'); // Toggle 'open' class on #header-menu
-      const menuList = headerMenu.querySelector('ul');
-      const menuItems = menuList.querySelectorAll('li');
-
-      if (menuList) {
-        menuList.classList.toggle('open'); // Toggle 'open' class on ul element
-      }
-
-      // Add or remove CSS property 'filter' directly to the .header-logo-mob element
-      if (headerLogoMob.style.filter === 'invert(1)') {
-        headerLogoMob.style.filter = ''; // Remove filter if already inverted
-      } else {
-        headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
-      }
-
-      // Animate list items
-      if (menuList.classList.contains('open')) {
-        menuItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('animate-in');
-          }, index * 150); // 150ms delay for each item
-        });
-        document.documentElement.style.overflowY = 'hidden'; // Add overflow-y: hidden to <html> tag
-      } else {
-        menuItems.forEach(item => {
-          item.classList.remove('animate-in');
-        });
-        document.documentElement.style.overflowY = ''; // Remove overflow-y: hidden from <html> tag
-      }
-    });
   }
 
+  // Initial call and bind resize event
+  toggleSlickGsap();
+  $(window).on('resize', toggleSlickGsap);
 
-
-
-
-
-  // Number Counter JS start
+  // Number counter animation
   const counters = document.querySelectorAll('.ib-counter-number span');
-  const speed = 500; //Increase value for slow speed
-
+  const speed = 500;
   const isElementInViewport = (el) => {
     const rect = el.getBoundingClientRect();
     return (
@@ -206,147 +173,73 @@ document.addEventListener("DOMContentLoaded", function () {
         const updateCount = () => {
           const target = +counter.getAttribute('data-target');
           const count = +counter.innerText;
-
           const increment = target / speed;
-
           if (count < target) {
             counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 50); //Increase value for slow speed
+            setTimeout(updateCount, 50);
           } else {
             counter.innerText = target;
           }
         };
-
         updateCount();
       }
     });
   };
 
   window.addEventListener('scroll', animateCounter);
-  animateCounter(); // Initial check in case the element is already in view
-  // Number Counter JS end
+  animateCounter();
 
-  // dynamically year change start
+  // Dynamically change year
   const yearSpan = document.getElementById('currentYear');
-  const currentYear = new Date().getFullYear();
-  yearSpan.textContent = currentYear;
-  // dynamically year change end
-});
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-
-// treatments card slider start
-$('.ib-card-slider').slick({
-  infinite: true,
-  speed: 300,
-  autoplay: true,
-  arrows: true,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1301,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        dots: true,
+  // Initialize sliders
+  $('.ib-card-slider').slick({
+    infinite: true,
+    speed: 300,
+    autoplay: true,
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1301,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        }
       }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        dots: true,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
-// treatments card slider end
+    ]
+  });
 
+  $('.testimonial-card').slick({
+    infinite: true,
+    speed: 300,
+    autoplay: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: false
+  });
 
-// testimonials slider start
-$('.testimonial-card').slick({
-  infinite: true,
-  speed: 300,
-  autoplay: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  dots: false
-});
-// testimonials slider end
-
-
-
-// blogs slider for mobile start
-// $(document).ready(function () {
-//   function toggleSlick() {
-//     if ($(window).width() < 992) {
-//       if (!$('.blogs-slider').hasClass('slick-initialized')) {
-//         $('.blogs-slider').slick({
-//           infinite: true,
-//           speed: 300,
-//           autoplay: true,
-//           slidesToScroll: 1,
-//           arrows: true,
-//           dots: true,
-//           responsive: [
-//             {
-//               breakpoint: 991,
-//               settings: {
-//                 slidesToShow: 2,
-//               }
-//             },
-//             {
-//               breakpoint: 767,
-//               settings: {
-//                 slidesToShow: 1,
-//               }
-//             }
-//           ]
-//         });
-//       }
-//     } else {
-//       if ($('.blogs-slider').hasClass('slick-initialized')) {
-//         $('.blogs-slider').slick('unslick');
-//       }
-//     }
-//   }
-
-//   toggleSlick();
-//   $(window).on('resize', toggleSlick);
-// });
-// blogs slider for mobile end
-
-
-// footer menu drop down start
-$(document).ready(function () {
+  // Footer menu dropdown
   $('.footer-menu-heading-arrow').click(function () {
     var menu = $(this).parent().next('.ib-footer-menu');
     var isOpen = menu.css('max-height') !== '0px' && menu.css('max-height') !== 'none';
-
-    // Close all menus and remove rotation from all arrows
     $('.ib-footer-menu').css('max-height', '0px');
     $('.footer-menu-heading-arrow').removeClass('open');
-
-    // Toggle the clicked menu
-    if (isOpen) {
-      menu.css('max-height', '0px');
-    } else {
+    if (!isOpen) {
       menu.css('max-height', menu.prop('scrollHeight') + 'px');
       $(this).addClass('open');
     }
   });
 });
-// footer menu drop down end
