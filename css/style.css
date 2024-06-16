@@ -109,6 +109,7 @@ h3 {
     text-decoration: none;
     text-align: center;
     transition: all .3s;
+    text-transform: uppercase;
 }
 
 .ib-btn-brandclr:hover {
@@ -439,11 +440,15 @@ button {
 
 /* banner start */
 #banner {
-    background: url(../images/home-page-bg.png) no-repeat center;
     background-size: cover !important;
     height: calc(85vh + 200px);
-    max-height: 1086px;
     position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.homepage{
+    max-height: 1086px;
 }
 
 #banner h1 {
@@ -463,9 +468,13 @@ button {
     margin-bottom: 48px;
 }
 
-#banner .banner-content {
+#banner .banner-content-bottom {
     position: relative;
     margin-bottom: 150px;
+}
+
+#banner .banner-content-center {
+    position: relative;
 }
 
 /* banner end */
@@ -1302,3 +1311,139 @@ footer .ib-footer-bottom ul li a {
 }
 
 /* footer section end */
+
+
+
+
+/* About page start */
+
+#aboutpage-banner .content{
+    position: relative;
+    padding: 120px 0px;
+}
+
+#aboutpage-banner h1{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 64px;
+    letter-spacing: -2px;
+    color: #000;
+    max-width: 655px;
+}
+#aboutpage-banner h1 span{
+    color: #D92827;
+}
+#aboutpage-banner p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+}
+
+
+
+/* About page end */
+
+
+
+
+
+/* Legal pages start */
+
+#legal-banner{
+    position: relative;
+    padding: 112px 0px;
+}
+
+#legal-banner h1{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 64px;
+    letter-spacing: -2px;
+    color: #000;
+    max-width: 620px;
+}
+#legal-banner p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #505050;
+    margin-top: 36px;
+}
+#legal-content{
+    margin-bottom: 120px;
+}
+#legal-content h2{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 39px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 16px;
+}
+#legal-content h3,
+#popup-cookie-banner h3{
+    font-family: HelveticaNowDisplay-Bold;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+    color: #000;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+}
+#legal-content p,
+#legal-content p a{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+    margin-bottom: 32px;
+}
+#legal-content ol{
+    padding-left: 25px;
+}
+#legal-content ol li,
+#legal-content ul li{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+}
+#legal-content ol li ol li:last-child,
+#legal-content ol li:last-child{
+    margin-bottom: 32px;
+}
+#legal-content ul{
+    padding-left: 30px;
+}
+#popup-cookie-banner{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    padding: 64px 0;
+    background-color: #fff;
+    margin: 0px;
+}
+#popup-cookie-banner .content{
+    max-width: 526px;
+}
+#popup-cookie-banner p,
+#popup-cookie-banner p a{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+}
+/* Legal pages end */
