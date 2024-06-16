@@ -66,23 +66,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // vertical progress bar on scroll start
+  // GSAP and ScrollTrigger initialization
   gsap.registerPlugin(ScrollTrigger);
 
-  // Pin the timeline and animate the line filling
-  ScrollTrigger.create({
-    trigger: '#ib-sec-steps',
-    start: 'center center',        // Start when the top of the timeline hits the top of the viewport
-    end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
-    pin: true,                     // Pin the timeline
-    pinSpacing: true,              // Maintain spacing
-    scrub: true,                   // Smooth scrubbing
-    markers: false,                 // Remove this in production
-    invalidateOnRefresh: true,
-    onUpdate: self => {
-      gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
-      updateActiveTimelineNumber(self.progress);
-    }
-  });
+  // Initialize the timeline ScrollTrigger
+  function initTimelineScrollTrigger() {
+    ScrollTrigger.create({
+      trigger: '#ib-sec-steps',
+      start: 'center center',        // Start when the top of the timeline hits the top of the viewport
+      end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
+      pin: true,                     // Pin the timeline
+      pinSpacing: true,              // Maintain spacing
+      scrub: true,                   // Smooth scrubbing
+      markers: false,                // Remove this in production
+      invalidateOnRefresh: true,
+      id: 'timelineScroll',          // Give a unique ID for the timeline ScrollTrigger
+      onUpdate: self => {
+        gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
+        updateActiveTimelineNumber(self.progress);
+      }
+    });
+  }
 
   // Function to update active timeline number
   function updateActiveTimelineNumber(progress) {
@@ -108,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
     }
   }
+  // Initialize the timeline ScrollTrigger on page load
+  initTimelineScrollTrigger();
   // vertical progress bar on scroll end
 
 

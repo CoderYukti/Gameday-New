@@ -217,6 +217,10 @@
 
     #ib-sec-steps .ib-timeline {
         padding: 0px 15px;
+        column-gap: 33px !important;
+    }
+    #ib-sec-steps .ib-timeline:not(:last-child) {
+        margin-bottom: 20px !important;
     }
 
     #ib-sec-steps .ib-timeline .timeline-content-heading {
@@ -240,10 +244,6 @@
     #ib-sec-steps .ib-timeline .timeline-number::before {
         width: 40px !important;
         height: 40px !important;
-    }
-
-    #ib-sec-steps .ib-timeline {
-        column-gap: 33px !important;
     }
 
     #ib-sec-testimonial {
