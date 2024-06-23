@@ -45,14 +45,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  window.addEventListener('scroll', function () {
+  let prevScrollPos = window.scrollY;
+
+window.addEventListener('scroll', function () {
     var header = document.getElementById('header-menu');
-    if (window.scrollY > 400) {
-      header.classList.add('scroll');
-    } else if (window.scrollY === 0) {
-      header.classList.remove('scroll');
+    var currentScrollPos = window.scrollY;
+
+    if (currentScrollPos === 0) {
+        // If at the top of the page, remove the scroll class
+        header.classList.remove('scroll');
+    } else if (currentScrollPos < prevScrollPos) {
+        // Scrolling up
+        header.classList.add('scroll');
+    } else {
+        // Scrolling down
+        header.classList.remove('scroll');
     }
-  });
+
+    prevScrollPos = currentScrollPos;
+});
+
+
+
 
   // Services hover effect
   const services = document.querySelectorAll('#ib-sec-two .services');

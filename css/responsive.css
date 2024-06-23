@@ -90,6 +90,14 @@
     footer .ib-footer-bottom {
         margin-top: 50px !important;
     }
+
+    /* about pages start */
+    #gameday-started,
+    #well-being {
+        padding: 80px 0px !important;
+    }
+
+    /* about pages end */
 }
 
 @media (max-width:767px) {
@@ -219,6 +227,7 @@
         padding: 0px 15px;
         column-gap: 33px !important;
     }
+
     #ib-sec-steps .ib-timeline:not(:last-child) {
         margin-bottom: 20px !important;
     }
@@ -417,6 +426,28 @@
     }
 
 
+    /* about pages start */
+    #aboutpage-banner h1{
+        font-size: 48px !important;
+        line-height: 50px !important;
+        letter-spacing: -2.3px !important;
+    }
+    #gameday-started,
+    #well-being {
+        padding: 50px 0px !important;
+    }
+
+    #well-being .cards .item {
+        padding: 24px !important;
+        max-width: 92% !important;
+    }
+
+    #well-being .cards .item h4 {
+        font-size: 26px !important;
+        line-height: 34px !important;
+    }
+
+    /* about pages end */
 
     /* Legal pages start */
 
@@ -456,6 +487,7 @@
         font-size: 18px !important;
         line-height: 24px !important;
     }
+
     /* Legal pages end */
 
 }
@@ -745,22 +777,30 @@
 
 
 
+    #gameday-started img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
 
     /* Legal pages start */
-    #popup-cookie-banner{
+    #popup-cookie-banner {
         padding: 30px 0 !important;
     }
-    #popup-cookie-banner .content{
+
+    #popup-cookie-banner .content {
         max-width: 100% !important;
     }
+
     /* Legal pages end */
 
 }
 
 
 @media (min-width:991px) {
+
     #popup-cookie-banner .ib-btn-outline,
-    #popup-cookie-banner .ib-btn-brandclr{
+    #popup-cookie-banner .ib-btn-brandclr {
         padding: 16px 20px !important;
     }
 }

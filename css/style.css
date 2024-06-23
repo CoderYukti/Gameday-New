@@ -83,6 +83,11 @@ h3 {
     text-transform: uppercase;
 }
 
+p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-weight: 400;
+}
+
 .ib-btns {
     display: flex;
     column-gap: 16px;
@@ -305,6 +310,10 @@ button {
     margin-right: auto;
 }
 
+.dark{
+    position: relative !important;
+    transition: all 0.5s;
+}
 /* Global CSS End*/
 
 
@@ -321,20 +330,29 @@ button {
     background-color: #fff;
     transition: all 0.5s;
 }
-#header-menu.scroll ul.ib-main-menu li a{
+#header-menu.scroll ul.ib-main-menu li a,
+#header-menu.dark ul.ib-main-menu li a{
     color: #000;
 }
 #header-menu.scroll ul.ib-main-menu li.header-logo,
 #header-menu.scroll ul.ib-main-menu li:first-child a::after,
 #header-menu.scroll ul.ib-main-menu li:last-child a::after,
-#header-menu.scroll .mob-menu .header-logo-mob{
+#header-menu.scroll .mob-menu .header-logo-mob,
+#header-menu.dark ul.ib-main-menu li.header-logo,
+#header-menu.dark ul.ib-main-menu li:first-child a::after,
+#header-menu.dark ul.ib-main-menu li:last-child a::after,
+#header-menu.dark .mob-menu .header-logo-mob{
     filter: invert(1);
 }
 
 #header-menu.scroll .hamburger::before, 
 #header-menu.scroll .hamburger::after, 
 #header-menu.scroll .hamburger .hamburger-icon::before, 
-#header-menu.scroll .hamburger .hamburger-icon::after{
+#header-menu.scroll .hamburger .hamburger-icon::after,
+#header-menu.dark .hamburger::before, 
+#header-menu.dark .hamburger::after, 
+#header-menu.dark .hamburger .hamburger-icon::before, 
+#header-menu.dark .hamburger .hamburger-icon::after{
     background: #000 !important;
 }
 
@@ -1350,8 +1368,48 @@ footer .ib-footer-bottom ul li a {
     color: #000;
 }
 
+#gameday-started{
+    padding: 120px 0px;
+    background-color: #f1f1f1;
+}
+#gameday-started h3{
+    margin-bottom: 16px;
+}
+#gameday-started p{
+    font-size: 20px;
+    line-height: 28px;
+}
 
-
+#well-being{
+    padding: 112px 0px;
+    background-color: #f1f1f1;
+}
+#well-being .cards{
+    margin-top: 60px;
+    row-gap: 24px;
+    column-gap: 24px;
+}
+#well-being .cards .item{
+    padding: 48px;
+    background-color: #ffffff;
+    max-width: 364px;
+}
+#well-being .cards .item h4{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 39px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    color: #000;
+}
+#well-being .cards .item p{
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 16px;
+    color: #000;
+}
 /* About page end */
 
 
