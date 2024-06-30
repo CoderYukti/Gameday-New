@@ -66,21 +66,38 @@ h1 {
 }
 
 h2 {
-    font-family: HelveticaNowDisplay-ExtraBold;
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 64px;
+    font-family: HelveticaNowDisplay-Black;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 56px;
     letter-spacing: -2px;
     text-transform: uppercase;
 }
 
 h3 {
-    font-family: HelveticaNowDisplay-Black;
-    font-weight: 900;
-    font-size: 56px;
-    line-height: 56px;
-    letter-spacing: -2px;
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 39px;
+    letter-spacing: -1px;
     text-transform: uppercase;
+}
+
+h4 {
+    font-family: HelveticaNowDisplay-Bold;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+}
+
+h5,
+h5 .accordion-button {
+    font-family: HelveticaNowDisplay-Bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
 }
 
 p{
@@ -310,11 +327,38 @@ button {
     margin-right: auto;
 }
 
-.dark{
-    position: relative !important;
-    transition: all 0.5s;
+.short-text-bef-heading{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.list-check{
+    list-style-type: none;
+}
+.list-check li{
+    padding-left: 34px;
+    position: relative;
+    font-family: HelveticaNowDisplay-Regular;
+    font-weight: 400;
+}
+.list-check li::before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    background-image: url(../images/list-check.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    display: block;
+
 }
 /* Global CSS End*/
+
 
 
 #header-menu{
@@ -330,29 +374,20 @@ button {
     background-color: #fff;
     transition: all 0.5s;
 }
-#header-menu.scroll ul.ib-main-menu li a,
-#header-menu.dark ul.ib-main-menu li a{
+#header-menu.scroll ul.ib-main-menu li a{
     color: #000;
 }
-#header-menu.scroll ul.ib-main-menu li.header-logo,
+/* #header-menu.scroll ul.ib-main-menu li.header-logo,
 #header-menu.scroll ul.ib-main-menu li:first-child a::after,
 #header-menu.scroll ul.ib-main-menu li:last-child a::after,
-#header-menu.scroll .mob-menu .header-logo-mob,
-#header-menu.dark ul.ib-main-menu li.header-logo,
-#header-menu.dark ul.ib-main-menu li:first-child a::after,
-#header-menu.dark ul.ib-main-menu li:last-child a::after,
-#header-menu.dark .mob-menu .header-logo-mob{
+#header-menu.scroll .mob-menu .header-logo-mob{
     filter: invert(1);
-}
+} */
 
 #header-menu.scroll .hamburger::before, 
 #header-menu.scroll .hamburger::after, 
 #header-menu.scroll .hamburger .hamburger-icon::before, 
-#header-menu.scroll .hamburger .hamburger-icon::after,
-#header-menu.dark .hamburger::before, 
-#header-menu.dark .hamburger::after, 
-#header-menu.dark .hamburger .hamburger-icon::before, 
-#header-menu.dark .hamburger .hamburger-icon::after{
+#header-menu.scroll .hamburger .hamburger-icon::after{
     background: #000 !important;
 }
 
@@ -367,7 +402,7 @@ button {
 }
 
 #header-menu ul.ib-main-menu li a{
-    color: #fff;
+    color: #000;
     text-decoration: none;
     text-transform: uppercase;
     font-family: HelveticaNowDisplay-Regular;
@@ -383,7 +418,7 @@ button {
 } 
 #header-menu ul.ib-main-menu li:first-child a::after{
     content: "";
-    background-image: url(../images/down-arrow-white.png);
+    background-image: url(../images/down-arrow-black-menu.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 12px;
@@ -402,7 +437,7 @@ button {
 }
 #header-menu ul.ib-main-menu li:last-child a::after{
     content: "";
-    background-image: url(../images/right-arrow-menu.png);
+    background-image: url(../images/right-arrow-black-menu.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 20px;
@@ -514,6 +549,10 @@ button {
     max-width: 849px;
 }
 
+#ib-sec-two .section-header h2{
+    color: #000;
+}
+
 #ib-sec-two .section-header p {
     font-family: HelveticaNowDisplay-Regular;
     font-size: 20px;
@@ -523,11 +562,7 @@ button {
     margin-top: 16px;
 }
 
-#ib-sec-two .services-item-heading{
-    font-family: HelveticaNowDisplay-ExtraBold;
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 39px;
+#ib-sec-two h3{
     color: #B8B8B8;
     text-transform: uppercase;
 }
@@ -604,7 +639,9 @@ button {
     padding: 120px 0px;
     background-color: #F1F1F1;
 }
-
+#ib-sec-treatments h2{
+    color: #000;
+}
 #ib-sec-treatments .content {
     margin-top: 60px;
 }
@@ -657,16 +694,15 @@ button {
 
 /* steps section start */
 #ib-sec-steps {
-    padding: 50px 0px;
+    padding: 120px 0px;
+}
+#ib-sec-steps.ib-section-light{
     background-color: #F1F1F1;
 }
-#ib-sec-steps .row{
-    padding-top: 50px;
-}
 
-#ib-sec-steps h3 {
+#ib-sec-steps h2 {
+    color: #000;
     margin-bottom: 40px;
-    max-width: 473px;
 }
 
 #ib-sec-steps .ib-timeline {
@@ -704,7 +740,6 @@ button {
     top: 5px;
     left: 18px;
     width: 1px;
-    height: 80%;
     background: rgba(217, 40, 39, .2);
     transform: translateX(-50%);
 }
@@ -750,13 +785,17 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid #D92827;
-    background-color: #F1F1F1;
     border-radius: 50%;
     width: 56px;
     height: 56px;
     z-index: 1;
 }
-
+#ib-sec-steps.ib-section-light .ib-timeline .timeline-number::before {
+    background-color: #F1F1F1;
+}
+#ib-sec-steps.ib-bg .ib-timeline .timeline-number::before {
+    background-color: #fff;
+}
 .timeline-content {
     opacity: 0;
     transform: translateX(100%);
@@ -767,12 +806,7 @@ button {
     transform: translateX(0%);
 }
 
-#ib-sec-steps .ib-timeline .timeline-content-heading {
-    font-family: HelveticaNowDisplay-Bold;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.3px;
+#ib-sec-steps .ib-timeline h4 {
     margin-bottom: 8px;
     color: #000;
 }
@@ -788,17 +822,17 @@ button {
 /* steps section end */
 
 /* testimonial section start */
-#ib-sec-testimonial {
+#ib-sec-testimonial.home-testimonials {
     background: url(../images/testimonial\ with\ heading.png) no-repeat center;
     background-size: cover;
     padding: 120px 0px;
 }
 
-#ib-sec-testimonial .content-header h3 {
+#ib-sec-testimonial .content-header h2 {
     color: #fff;
 }
 
-#ib-sec-testimonial .content-header h3 span {
+#ib-sec-testimonial .content-header h2 span {
     color: #EE3333;
     display: block;
 }
@@ -811,7 +845,7 @@ button {
     color: #fff;
 }
 
-#ib-sec-testimonial .testimonial-card {
+#ib-sec-testimonial.home-testimonials .testimonial-card {
     margin-top: 160px;
 }
 
@@ -835,8 +869,10 @@ button {
     font-size: 32px;
     font-weight: 400;
     line-height: 38px;
-    color: #fff;
     margin: 48px 0px;
+}
+#ib-sec-testimonial.home-testimonials .testimonial-card p {
+    color: #fff;
 }
 
 #ib-sec-testimonial .testimonial-card .author .flex-sm-column {
@@ -854,10 +890,11 @@ button {
     font-size: 14px;
     font-weight: 700;
     line-height: 24px;
-    color: #fff;
     text-transform: uppercase;
 }
-
+#ib-sec-testimonial.home-testimonials .testimonial-card .author .author-stars-place .stars-heading{
+    color: #fff;
+}
 /* testimonial section end */
 
 
@@ -893,7 +930,9 @@ button {
     padding: 100px 0px;
 
 }
-
+#ib-sec-seven .content-header h2{
+    color: #000;
+}
 #ib-sec-seven .content-header p {
     font-family: HelveticaNowDisplay-Regular;
     font-size: 20px;
@@ -911,7 +950,7 @@ button {
 
 #ib-sec-seven .content .ib-card img {
     width: 100%;
-    height: 70%;
+    height: 459px;
     object-fit: cover;
 }
 
@@ -937,8 +976,11 @@ button {
 }
 
 
-
-#ib-sec-seven .slick-slide{
+#ib-sec-seven .container{
+    padding: 0px;
+}
+#ib-sec-seven .slick-slide,
+#ib-sec-seven .content-header{
     margin-left: 12px;
     margin-right: 12px;
 }
@@ -1011,7 +1053,7 @@ button {
     max-width: 461px;
 }
 
-#ib-sec-eight h3 {
+#ib-sec-eight h2 {
     margin-bottom: 16px;
     color: #000;
 }
@@ -1028,16 +1070,20 @@ button {
 /* section eight end */
 
 /* section nine start */
-#ib-sec-nine {
-    background: url(../images/image21.png) no-repeat center;
-    background-size: cover;
-    /* padding-bottom: 142px; */
+#start-best-life {
     position: relative;
     height: 899px;
     margin-bottom: 256px;
 }
-
-#ib-sec-nine .content-place {
+#start-best-life.ib-home{
+    background: url(../images/image21.png) no-repeat center;
+    background-size: cover;
+}
+#start-best-life.ib-treatments{
+    background: url(../images/treatments-start-life.png) no-repeat center;
+    background-size: cover;
+}
+#start-best-life .content-place {
     background: url(../images/blackbox.png) no-repeat center;
     background-size: cover;
     padding: 82px 0px 77px 97px;
@@ -1046,21 +1092,21 @@ button {
     transform: translateY(50%);
 }
 
-#ib-sec-nine .content {
+#start-best-life .content {
     max-width: 655px;
 }
 
-#ib-sec-nine .content h3 {
+#start-best-life .content h2 {
     color: #fff;
     max-width: 477px;
     margin-bottom: 16px;
 }
 
-#ib-sec-nine .content h3 span {
+#start-best-life .content h2 span {
     color: #EE3333;
 }
 
-#ib-sec-nine .content p {
+#start-best-life .content p {
     font-family: HelveticaNowDisplay-Regular;
     font-size: 24px;
     font-weight: 400;
@@ -1077,7 +1123,9 @@ button {
     padding-top: 120px;
     padding-bottom: 40px;
 }
-
+#ib-sec-blogs h2{
+    color: #000;
+}
 #ib-sec-blogs .content {
     margin-top: 60px;
 }
@@ -1184,6 +1232,10 @@ button {
     margin-bottom: 80px;
     color: #000;
 }
+#ib-sec-faq h4.subheading {
+    margin-bottom: 32px;
+    color: #727272;
+}
 
 #ib-sec-faq .accordion-item {
     border: none;
@@ -1191,11 +1243,6 @@ button {
 }
 
 #ib-sec-faq .accordion-button {
-    font-family: HelveticaNowDisplay-Bold;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: -0.25px;
     padding: 0px;
     color: #505050;
 }
@@ -1206,6 +1253,7 @@ button {
     font-size: 20px;
     font-weight: 400;
     line-height: 28px;
+    color: #505050;
 }
 
 #ib-sec-faq .accordion-button:not(.collapsed) {
@@ -1227,6 +1275,16 @@ button {
 
 #ib-sec-faq .accordion-button:focus {
     box-shadow: none;
+}
+#ib-sec-faq .faq-content{
+    padding-top: 64px;
+    margin-top: 64px;
+    border-top: 1px solid #B8B8B8;
+}
+#ib-sec-faq .faq-content:first-of-type{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    border-top: none !important;
 }
 
 /* faq section end */
@@ -1414,6 +1472,162 @@ footer .ib-footer-bottom ul li a {
 
 
 
+/* Treatments page start */
+
+#treatments-banner{
+    padding: 207px 0px 120px 0px;
+}
+
+#treatments-banner .content{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#treatments-banner .breadcrumb{
+    margin-bottom: 0px;
+}
+#treatments-banner .breadcrumb a {
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 0px;
+    color: #000;
+    text-decoration: none;
+}
+#treatments-banner .breadcrumb .breadcrumb-item.active{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #727272;
+}
+
+#treatments-banner h1{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 64px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #000;
+}
+#treatments-banner p{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+    margin-bottom: 48px;
+}
+
+#treatments-exploring{
+    padding: 71px 0px;
+    background: url(../images/Exploring-Section.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#treatments-exploring h2{
+    color: #fff;
+    margin-bottom: 16px;
+}
+#treatments-exploring p{
+    font-size: 20px;
+    line-height: 28px;
+    color: #fff;
+}
+
+#treatments-benefits{
+    padding: 120px 0px 60px 0px;
+}
+#treatments-benefits .short-text-bef-heading{
+    color: #D92827;
+    margin-bottom: 12px;
+}
+#treatments-benefits h2{
+    color: #000;
+    margin-bottom: 16px;
+}
+#treatments-benefits p{
+    color: #505050;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+#treatments-benefits .content .list-check{
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+}
+#treatments-benefits .content .list-check li:not(:last-child){
+    margin-bottom: 24px;
+}
+
+#treatments-expect{
+    padding-bottom: 60px;
+}
+#treatments-expect .short-text-bef-heading{
+    color: #D92827;
+    margin-bottom: 12px;
+}
+#treatments-expect h2{
+    color: #000;
+    font-weight: 900;
+    font-family: HelveticaNowDisplay-Black;
+    margin-bottom: 16px;
+}
+#treatments-expect p{
+    color: #000;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+#what-next{
+    position: relative;
+}
+#what-next::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #F1F1F1;
+    height: 171px;
+    width: 100%;
+    z-index: -1;
+}
+#what-next .ib-bg{
+    padding: 64px 0px 64px 73px;
+    background: url(../images/what-next.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+#what-next .content{
+    max-width: 679px;
+}
+#what-next h3{
+    color: #fff;
+    margin-bottom: 16px;
+}
+#what-next p{
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 36px;
+}
+
+#ib-sec-testimonial.treatments-testimonials{
+    background-color: #F1F1F1;
+    padding: 120px 0px;
+}
+#ib-sec-testimonial.treatments-testimonials .ib-quote,
+#ib-sec-testimonial.treatments-testimonials .testimonial-card .slick-next:before,
+#ib-sec-testimonial.treatments-testimonials .testimonial-card .slick-prev:before{
+    filter: invert(1);
+}
 
 
 /* Legal pages start */
@@ -1513,3 +1727,52 @@ footer .ib-footer-bottom ul li a {
     color: #000;
 }
 /* Legal pages end */
+
+
+
+
+
+
+
+
+
+
+
+/* horizontal scroll */
+
+#horizontal-scoll {
+    padding: 60px 0;
+  }
+  
+  .horizontal-scoll-wrapper {
+    /* overflow: hidden; */
+    /* height: 525px; */
+  }
+  
+  .horizontal {
+    display: flex;
+    height: 100%;
+  }
+  
+  .horizontal > div {
+    /* display: flex;
+    flex-shrink: 0; */
+    padding: 0 5px;
+  }
+  
+  .horizontal > div:first-child {
+    padding: 0 5px 0 15px;
+  }
+  
+  .horizontal > div:last-child {
+    padding: 0 15px 0 5px;
+  }
+  
+  .horizontal .card {
+    align-items: stretch;
+    width: 540px;
+    padding: 50px 40px;
+    background: #6e4ce1;
+    border-radius: 38px;
+    color: #f6f2e8;
+  }

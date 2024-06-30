@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         menuList.classList.toggle('open'); // Toggle 'open' class on ul element
       }
 
-      // Add or remove CSS property 'filter' directly to the .header-logo-mob element
-      if (headerLogoMob.style.filter === 'invert(1)') {
-        headerLogoMob.style.filter = ''; // Remove filter if already inverted
-      } else {
-        headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
-      }
+      // // Add or remove CSS property 'filter' directly to the .header-logo-mob element
+      // if (headerLogoMob.style.filter === 'invert(1)') {
+      //   headerLogoMob.style.filter = ''; // Remove filter if already inverted
+      // } else {
+      //   headerLogoMob.style.filter = 'invert(1)'; // Add filter to invert the logo
+      // }
 
       // Animate list items
       if (menuList.classList.contains('open')) {
@@ -47,23 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let prevScrollPos = window.scrollY;
 
-window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', function () {
     var header = document.getElementById('header-menu');
     var currentScrollPos = window.scrollY;
 
     if (currentScrollPos === 0) {
-        // If at the top of the page, remove the scroll class
-        header.classList.remove('scroll');
+      // If at the top of the page, remove the scroll class
+      header.classList.remove('scroll');
     } else if (currentScrollPos < prevScrollPos) {
-        // Scrolling up
-        header.classList.add('scroll');
+      // Scrolling up
+      header.classList.add('scroll');
     } else {
-        // Scrolling down
-        header.classList.remove('scroll');
+      // Scrolling down
+      header.classList.remove('scroll');
     }
 
     prevScrollPos = currentScrollPos;
-});
+  });
 
 
 
@@ -80,23 +80,107 @@ window.addEventListener('scroll', function () {
 
 
   // vertical progress bar on scroll start
+
+  // // GSAP and ScrollTrigger initialization
+  // gsap.registerPlugin(ScrollTrigger);
+
+  // // Initialize the timeline ScrollTrigger
+  // function initTimelineScrollTrigger() {
+  //   ScrollTrigger.create({
+  //     trigger: '#ib-sec-steps',
+  //     start: 'center center',        // Start when the top of the timeline hits the top of the viewport
+  //     end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
+  //     pin: true,                     // Pin the timeline
+  //     pinSpacing: true,              // Maintain spacing
+  //     scrub: true,                   // Smooth scrubbing
+  //     markers: false,                // Remove this in production
+  //     invalidateOnRefresh: true,
+  //     id: 'timelineScroll',          // Give a unique ID for the timeline ScrollTrigger
+  //     onUpdate: self => {
+  //       gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
+  //       updateActiveTimelineNumber(self.progress);
+  //     }
+  //   });
+  // }
+
+  // // Function to update active timeline number
+  // function updateActiveTimelineNumber(progress) {
+  //   const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
+  //   const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
+  //   const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+
+  //   timelineNumbers.forEach((number, index) => {
+  //     if (index <= activeIndex) {
+  //       if (!number.classList.contains('active')) {
+  //         number.classList.add('active');
+  //         gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
+  //       }
+  //     } else {
+  //       number.classList.remove('active');
+  //       gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //     }
+  //   });
+
+  //   // Ensure the active class is removed from the first number if the fill height is 0
+  //   if (progress === 0) {
+  //     timelineNumbers[0].classList.remove('active');
+  //     gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //   }
+  // }
+  // // Initialize the timeline ScrollTrigger on page load
+  // initTimelineScrollTrigger();
+
+
   // GSAP and ScrollTrigger initialization
   gsap.registerPlugin(ScrollTrigger);
 
-  // Initialize the timeline ScrollTrigger
   function initTimelineScrollTrigger() {
+    const section = document.querySelector('#ib-sec-steps');
+    if (!section) {
+      return;
+    }
+
+    const timelineLine = section.querySelector('.timeline-line');
+    const timelineFill = section.querySelector('.timeline-line-fill');
+    const timelineNumbers = section.querySelectorAll('.timeline-number');
+
+    if (timelineNumbers.length === 0) {
+      return;
+    }
+
+    const timelineNumberFirst = timelineNumbers[0];
+    const timelineNumberLast = timelineNumbers[timelineNumbers.length - 1];
+
+    // Function to update the height of the timeline line
+    function updateTimelineHeight() {
+      const sectionRect = section.getBoundingClientRect();
+      const topPosition = timelineNumberFirst.getBoundingClientRect().top - sectionRect.top;
+      const bottomPosition = timelineNumberLast.getBoundingClientRect().bottom - sectionRect.top;
+      const totalHeight = bottomPosition - topPosition;
+
+      // Set the height of the .timeline-line dynamically based on calculated height
+      timelineLine.style.height = `${totalHeight}px`;
+    }
+
+    // Call the function once to set the initial height
+    updateTimelineHeight();
+
+    // Recalculate the height on window resize
+    window.addEventListener('resize', updateTimelineHeight);
+
+    // Initialize ScrollTrigger
     ScrollTrigger.create({
       trigger: '#ib-sec-steps',
-      start: 'center center',        // Start when the top of the timeline hits the top of the viewport
-      end: '+=500px',               // End when the bottom of the timeline hits the bottom of the viewport
-      pin: true,                     // Pin the timeline
-      pinSpacing: true,              // Maintain spacing
-      scrub: true,                   // Smooth scrubbing
-      markers: false,                // Remove this in production
+      start: 'center center',
+      end: () => `+=${timelineLine.offsetHeight}`,  // End when the bottom of the timeline content is reached
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
+      markers: false,
       invalidateOnRefresh: true,
-      id: 'timelineScroll',          // Give a unique ID for the timeline ScrollTrigger
+      id: 'timelineScroll',
       onUpdate: self => {
-        gsap.to('.timeline-line-fill', { height: `${self.progress * 100}%`, ease: "none" });
+        gsap.to(timelineFill, { height: `${self.progress * 100}%`, ease: "none" });
         updateActiveTimelineNumber(self.progress);
       }
     });
@@ -126,8 +210,18 @@ window.addEventListener('scroll', function () {
       gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
     }
   }
+
   // Initialize the timeline ScrollTrigger on page load
   initTimelineScrollTrigger();
+
+
+
+
+
+
+
+
+
   // vertical progress bar on scroll end
 
 
@@ -170,24 +264,42 @@ window.addEventListener('scroll', function () {
       if (mobSlider.hasClass('slick-initialized')) {
         mobSlider.slick('unslick');
       }
-      const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
-      const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
-      if (ibscrolltrigger && ibscrollwrapper) {
-        gsap.to(ibscrolltrigger, {
-          x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ibscrollwrapper,
-            start: 'center center',
-            end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
-            markers: false,
-            pin: ibscrollwrapper,
-            scrub: 3,
-            invalidateOnRefresh: true,
-            id: 'horizontalScroll' // Give a unique ID
-          }
-        });
-      }
+      // const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
+      // const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
+      // if (ibscrolltrigger && ibscrollwrapper) {
+      //   gsap.to(ibscrolltrigger, {
+      //     x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
+      //     ease: "none",
+      //     scrollTrigger: {
+      //       trigger: ibscrollwrapper,
+      //       start: 'top',
+      //       end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
+      //       markers: true,
+      //       pin: ibscrollwrapper,
+      //       scrub: 3,
+      //       invalidateOnRefresh: true,
+      //       id: 'horizontalScroll' // Give a unique ID
+      //     }
+      //   });
+      // }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      let horizontalSection = document.querySelector('.horizontal');
+
+      gsap.to('.horizontal', {
+        x: () => horizontalSection.scrollWidth * -1,
+        xPercent: 100,
+        scrollTrigger: {
+          trigger: '.horizontal',
+          start: 'center center',
+          end: '+=2000px',
+          pin: '#horizontal-scoll',
+          scrub: 2,
+          invalidateOnRefresh: true
+        }
+      });
+
     }
   }
 
@@ -202,6 +314,14 @@ window.addEventListener('scroll', function () {
     });
     toggleSlickGsap();
   });
+
+
+
+
+
+
+
+
 
   // Number counter animation
   const counters = document.querySelectorAll('.ib-counter-number span');
@@ -315,3 +435,4 @@ window.addEventListener('scroll', function () {
     });
   })();
 });
+
