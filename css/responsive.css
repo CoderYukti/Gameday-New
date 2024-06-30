@@ -662,26 +662,32 @@
 }
 
 @media (max-width:991px) {
-    
-    /* Home page menu color start */
+
+    /* Home page and page-notfound menu color start */
 
     #home #header-menu .mob-menu .header-logo-mob,
-    #home #header-menu .mob-menu .hamburger {
+    #home #header-menu .mob-menu .hamburger,
+    #page-notfound #header-menu .mob-menu .header-logo-mob,
+    #page-notfound #header-menu .mob-menu .hamburger {
         filter: invert(1);
         transition: all 0.7s;
     }
 
     #home #header-menu.open .mob-menu .header-logo-mob,
-    #home #header-menu.open .mob-menu .hamburger {
+    #home #header-menu.open .mob-menu .hamburger,
+    #page-notfound #header-menu.open .mob-menu .header-logo-mob,
+    #page-notfound #header-menu.open .mob-menu .hamburger {
         filter: none !important;
     }
 
     #home #header-menu.scroll .mob-menu .header-logo-mob,
-    #home #header-menu.scroll .mob-menu .hamburger {
+    #home #header-menu.scroll .mob-menu .hamburger,
+    #page-notfound #header-menu.scroll .mob-menu .header-logo-mob,
+    #page-notfound #header-menu.scroll .mob-menu .hamburger {
         filter: none !important;
     }
 
-    /* Home page menu color end */
+    /* Home page and page-notfound menu color end */
 
     .ib-card-slider .slick-dots li button:before {
         color: #727272 !important;
@@ -918,16 +924,18 @@
 
 @media (min-width:991px) {
 
-    /* Home page menu color start */
-    #home #header-menu .ib-main-menu {
+    /* Home page and page-notfound menu color start */
+    #home #header-menu .ib-main-menu,
+    #page-notfound #header-menu .ib-main-menu {
         filter: invert(1);
     }
 
-    #home #header-menu.scroll .ib-main-menu {
+    #home #header-menu.scroll .ib-main-menu,
+    #page-notfound #header-menu.scroll .ib-main-menu {
         filter: none !important;
     }
 
-    /* Home page menu color end */
+    /* Home page and page-notfound menu color end */
 
     #popup-cookie-banner .ib-btn-outline,
     #popup-cookie-banner .ib-btn-brandclr {
