@@ -551,7 +551,7 @@
     /* Legal pages start */
 
     #legal-banner {
-        padding: 64px 0px !important;
+        padding: 156px 0px 64px 0px !important;
     }
 
     #legal-banner h1 {

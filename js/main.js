@@ -131,6 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // initTimelineScrollTrigger();
 
 
+
+
   // GSAP and ScrollTrigger initialization
   gsap.registerPlugin(ScrollTrigger);
 
@@ -218,10 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
   // vertical progress bar on scroll end
 
 
@@ -283,23 +281,26 @@ document.addEventListener("DOMContentLoaded", function () {
       //   });
       // }
 
+
       gsap.registerPlugin(ScrollTrigger);
 
       let horizontalSection = document.querySelector('.horizontal');
 
-      gsap.to('.horizontal', {
-        x: () => horizontalSection.scrollWidth * -1,
-        xPercent: 100,
-        scrollTrigger: {
-          trigger: '.horizontal',
-          start: 'center center',
-          end: '+=2000px',
-          pin: '#horizontal-scoll',
-          scrub: 2,
-          invalidateOnRefresh: true
-        }
-      });
-
+      if (horizontalSection) {
+        gsap.to('.horizontal', {
+          x: () => horizontalSection.scrollWidth * -1,
+          xPercent: 100,
+          scrollTrigger: {
+            trigger: '.horizontal',
+            start: 'center center',
+            end: '+=2000px',
+            pin: '#horizontal-scroll',
+            scrub: 2,
+            id: 'horizontalScroll', // Give a unique ID
+            invalidateOnRefresh: true,
+          }
+        });
+      }
     }
   }
 
@@ -365,32 +366,93 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
   // Initialize sliders
-  $('.ib-card-slider').slick({
-    infinite: true,
-    speed: 300,
-    autoplay: true,
-    arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1301,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          dots: true,
+  // $('.ib-card-slider').slick({
+  //   infinite: true,
+  //   speed: 300,
+  //   autoplay: true,
+  //   arrows: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1301,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1,
+  //         dots: true,
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //         dots: true,
+  //       }
+  //     }
+  //   ]
+  // });
+
+  jQuery(document).ready(function () {
+    // Count the number of .card-item elements
+    var cardCount = jQuery('.ib-card-slider .card-item').length;
+
+    // Determine slidesToShow value (maximum 3)
+    var slidesToShow = Math.min(cardCount, 3);
+
+    // Initialize Slick Slider
+    var $slider = jQuery('.ib-card-slider').slick({
+      infinite: true,
+      speed: 300,
+      autoplay: true,
+      arrows: true,
+      slidesToShow: slidesToShow,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1301,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: true,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+          }
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-        }
+      ]
+    });
+
+    function toggleArrows() {
+      var slideCount = $slider.slick('getSlick').slideCount;
+      var slidesToShow = $slider.slick('slickGetOption', 'slidesToShow');
+
+      if (slideCount <= slidesToShow) {
+        $slider.find('.slick-prev, .slick-next').hide();
+      } else {
+        $slider.find('.slick-prev, .slick-next').show();
       }
-    ]
+    }
+
+    // Initial check
+    toggleArrows();
+
+    // Recheck on window resize
+    $(window).on('resize', function () {
+      toggleArrows();
+    });
+
+    // Recheck after any slick events that might change the number of slides or the visibility of arrows
+    $slider.on('setPosition', function () {
+      toggleArrows();
+    });
   });
+
 
   $('.testimonial-card').slick({
     infinite: true,
@@ -422,6 +484,174 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   // footer menu drop down end
+
+
+
+
+  // Select all location states
+
+  // Process location states
+  const locationStates = document.querySelectorAll('.location-state');
+
+  locationStates.forEach(state => {
+    const citiesContainer = state.querySelector('.state-cities');
+    if (!citiesContainer) return;
+
+    const cityElements = Array.from(citiesContainer.querySelectorAll('.city'));
+
+    // Sort cities alphabetically by h5 text content (excluding <span> text)
+    cityElements.sort((a, b) => {
+      const titleA = getTextFromH5WithoutSpanCity(a);
+      const titleB = getTextFromH5WithoutSpanCity(b);
+      return titleA.localeCompare(titleB);
+    });
+
+    // Clear current order and append sorted cities
+    citiesContainer.innerHTML = ''; // Clear existing cities
+
+    cityElements.forEach(city => {
+      citiesContainer.appendChild(city); // Append each city in sorted order
+    });
+  });
+
+
+  function getTextFromH5WithoutSpanCity(cityElement) {
+    const h5Element = cityElement.querySelector('.info h5');
+    if (h5Element) {
+      // Get all text nodes within h5 element and concatenate their text content
+      return Array.from(h5Element.childNodes)
+        .filter(node => node.nodeType === Node.TEXT_NODE)
+        .map(node => node.textContent.trim())
+        .join('');
+    }
+    return '';
+  }
+
+
+  // combine code for search location and all location list
+
+  // function getTextFromH5WithoutSpan(element, selector) {
+  //   const h5Element = element.querySelector(selector);
+  //   if (h5Element) {
+  //       // Get all text nodes within h5 element and concatenate their text content
+  //       return Array.from(h5Element.childNodes)
+  //           .filter(node => node.nodeType === Node.TEXT_NODE)
+  //           .map(node => node.textContent.trim())
+  //           .join('');
+  //   }
+  //   return '';
+  // }
+
+  // // General function to sort and reorder elements
+  // function sortAndReorderElements(containerSelector, itemSelector, h5Selector) {
+  //   const containers = document.querySelectorAll(containerSelector);
+
+  //   containers.forEach(container => {
+  //       const itemElements = Array.from(container.querySelectorAll(itemSelector));
+
+  //       // Sort items alphabetically by h5 text content (excluding <span> text)
+  //       itemElements.sort((a, b) => {
+  //           const titleA = getTextFromH5WithoutSpan(a, h5Selector);
+  //           const titleB = getTextFromH5WithoutSpan(b, h5Selector);
+  //           return titleA.localeCompare(titleB);
+  //       });
+
+  //       // Clear current order and append sorted items
+  //       container.innerHTML = ''; // Clear existing items
+
+  //       itemElements.forEach(item => {
+  //           container.appendChild(item); // Append each item in sorted order
+  //       });
+  //   });
+  // }
+
+  // // Process searched locations
+  // sortAndReorderElements('.searched-locations', '.locations-info', 'h5');
+
+  // // Process location states
+  // sortAndReorderElements('.location-state .state-cities', '.city', '.info h5');
+
+
+
+
+
+  // Get the elements
+  var customizeButton = document.querySelector('#popup-cookie-banner .customize');
+  var modal = document.getElementById('customizeModal');
+  var modalBody = document.querySelector('#customizeModal .ib-modal-body');
+  var closeModal = document.querySelector('.cookie-modal .close');
+  var cookiePopup = document.querySelector('.cookie-popup');
+
+  if (customizeButton) {
+    // Add click event to the customize button
+    customizeButton.addEventListener('click', function () {
+      modal.classList.add('show');
+      modalBody.style.top = '100%'; // Ensure it's off-screen
+      setTimeout(function () {
+        modalBody.style.top = '0';
+      }, 10); // Small delay to trigger the transition
+      cookiePopup.style.display = 'none'; // Hide cookie popup
+    });
+
+    // Add click event to the close button
+    closeModal.addEventListener('click', function () {
+      modalBody.style.top = '100%';
+      setTimeout(function () {
+        modal.classList.remove('show');
+      }, 500); // Match the transition duration
+      cookiePopup.style.display = 'block'; // Show cookie popup
+    });
+
+    // Add click event to window to close the modal when clicking outside of it
+    window.addEventListener('click', function (event) {
+      if (event.target == modal) {
+        modalBody.style.top = '100%';
+        setTimeout(function () {
+          modal.classList.remove('show');
+        }, 500); // Match the transition duration
+        cookiePopup.style.display = 'block'; // Show cookie popup
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+  const headings = document.querySelectorAll('#popup-cookie-banner .ib-modal-body .modal-content .modal-options .item-heading');
+  const items = document.querySelectorAll('#popup-cookie-banner .ib-modal-body .modal-content .modal-options .options-item');
+  let currentExpandedItem = null;
+
+  headings.forEach((heading, index) => {
+    heading.addEventListener('click', function () {
+      const optionsItem = items[index];
+      const currentMaxHeight = parseInt(window.getComputedStyle(optionsItem).maxHeight); // Get current max-height
+
+      if (currentExpandedItem && currentExpandedItem !== optionsItem) {
+        // Collapse the previously expanded item
+        currentExpandedItem.style.maxHeight = '106px';
+        currentExpandedItem.classList.remove('expand'); // Remove expand class
+      }
+
+      if (currentMaxHeight === 106) {
+        // Expand clicked item
+        const fullHeight = optionsItem.scrollHeight + 'px'; // Calculate full height
+        optionsItem.style.maxHeight = fullHeight;
+        optionsItem.classList.add('expand'); // Add expand class
+        currentExpandedItem = optionsItem;
+      } else {
+        // Collapse clicked item
+        optionsItem.style.maxHeight = '106px'; // Collapse to initial height
+        optionsItem.classList.remove('expand'); // Remove expand class
+        currentExpandedItem = null;
+      }
+    });
+  });
+
+
 
 
   // Function to detect screen size changes and force a hard refresh
