@@ -57,6 +57,9 @@ body {
 }
 
 /* Global CSS Start*/
+section{
+    position: relative;
+}
 ul {
     padding-left: 0px;
     margin-bottom: 0;
@@ -478,58 +481,50 @@ button {
     display: none;
 }
 
-/* #header-menu ul li.ib-sub-menu{
+#header-menu nav .services-sub-menu{
     position: relative;
-} */
-
-.sub-menu-content {
+    padding-top: 60px;
+}
+#header-menu nav .services-sub-menu::before{
+    content: "";
     position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* background: linear-gradient(90deg, #fff 50%, #f1f1f1 50%) !important; */
-    width: 100vw;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
+    background: linear-gradient(90deg, #fff 50%, #f1f1f1 50%) !important;
+    z-index: -1;
 }
 
-/* .sub-menu-content div{
-    flex-basis: 50%;
+/* #header-menu nav .services-sub-menu .treatments-list .menu{
+    display: flex;
+    column-gap: 64px;
 } */
-
-.sub-menu-content .show-services {
-    background-color: #fff;
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.sub-menu-content .treatments-menu {
-    background-color: #f1f1f1;
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-}
-
-.sub-menu-content .treatments-menu ul {
+#header-menu nav .services-sub-menu .treatments-list .menu ul{
+    margin-top: 32px;
     width: 50%;
 }
-
-.sub-menu-content .treatments-menu ul li {
-    display: block !important;
+#header-menu nav .services-sub-menu .treatments-list .menu ul li{
+    list-style-type: none;
 }
-
-.sub-menu-content .treatments-menu ul li a {
-    color: #000 !important;
-    text-align: left;
+#header-menu nav .services-sub-menu .treatments-list .menu ul li:not(:last-child){
+    margin-bottom: 24px;
 }
-
-#header-menu ul li.ib-sub-menu .sub-menu-content {
-    display: none;
+#header-menu nav .services-sub-menu .treatments-list .menu ul li a{
+    font-family: HelveticaNowDisplay-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    text-decoration: none;
 }
-
-#header-menu ul li.ib-sub-menu:hover .sub-menu-content {
-    display: flex;
+#header-menu nav .services-sub-menu .heading{
+    font-family: HelveticaNowDisplay-ExtraBold;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #727272;
 }
 
 /* banner start */

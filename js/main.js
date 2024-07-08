@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // vertical progress bar on scroll start
 
-  // // GSAP and ScrollTrigger initialization
+  // GSAP and ScrollTrigger initialization
   // gsap.registerPlugin(ScrollTrigger);
 
   // // Initialize the timeline ScrollTrigger
@@ -133,188 +133,196 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+
+
+
   // GSAP and ScrollTrigger initialization
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  function initTimelineScrollTrigger() {
-    const section = document.querySelector('#ib-sec-steps');
-    if (!section) {
-      return;
-    }
+  // function initTimelineScrollTrigger() {
+  //   const section = document.querySelector('#ib-sec-steps');
+  //   if (!section) {
+  //     return;
+  //   }
 
-    const timelineLine = section.querySelector('.timeline-line');
-    const timelineFill = section.querySelector('.timeline-line-fill');
-    const timelineNumbers = section.querySelectorAll('.timeline-number');
+  //   const timelineLine = section.querySelector('.timeline-line');
+  //   const timelineFill = section.querySelector('.timeline-line-fill');
+  //   const timelineNumbers = section.querySelectorAll('.timeline-number');
 
-    if (timelineNumbers.length === 0) {
-      return;
-    }
+  //   if (timelineNumbers.length === 0) {
+  //     return;
+  //   }
 
-    const timelineNumberFirst = timelineNumbers[0];
-    const timelineNumberLast = timelineNumbers[timelineNumbers.length - 1];
+  //   const timelineNumberFirst = timelineNumbers[0];
+  //   const timelineNumberLast = timelineNumbers[timelineNumbers.length - 1];
 
-    // Function to update the height of the timeline line
-    function updateTimelineHeight() {
-      const sectionRect = section.getBoundingClientRect();
-      const topPosition = timelineNumberFirst.getBoundingClientRect().top - sectionRect.top;
-      const bottomPosition = timelineNumberLast.getBoundingClientRect().bottom - sectionRect.top;
-      const totalHeight = bottomPosition - topPosition;
+  //   // Function to update the height of the timeline line
+  //   function updateTimelineHeight() {
+  //     const sectionRect = section.getBoundingClientRect();
+  //     const topPosition = timelineNumberFirst.getBoundingClientRect().top - sectionRect.top;
+  //     const bottomPosition = timelineNumberLast.getBoundingClientRect().bottom - sectionRect.top;
+  //     const totalHeight = bottomPosition - topPosition;
 
-      // Set the height of the .timeline-line dynamically based on calculated height
-      timelineLine.style.height = `${totalHeight}px`;
-    }
+  //     // Set the height of the .timeline-line dynamically based on calculated height
+  //     timelineLine.style.height = `${totalHeight}px`;
+  //   }
 
-    // Call the function once to set the initial height
-    updateTimelineHeight();
+  //   // Call the function once to set the initial height
+  //   updateTimelineHeight();
 
-    // Recalculate the height on window resize
-    window.addEventListener('resize', updateTimelineHeight);
+  //   // Recalculate the height on window resize
+  //   window.addEventListener('resize', updateTimelineHeight);
 
-    // Initialize ScrollTrigger
-    ScrollTrigger.create({
-      trigger: '#ib-sec-steps',
-      start: 'center center',
-      end: () => `+=${timelineLine.offsetHeight}`,  // End when the bottom of the timeline content is reached
-      pin: true,
-      pinSpacing: true,
-      scrub: true,
-      markers: false,
-      invalidateOnRefresh: true,
-      id: 'timelineScroll',
-      onUpdate: self => {
-        gsap.to(timelineFill, { height: `${self.progress * 100}%`, ease: "none" });
-        updateActiveTimelineNumber(self.progress);
-      }
-    });
-  }
+  //   // Initialize ScrollTrigger
+  //   ScrollTrigger.create({
+  //     trigger: '#ib-sec-steps',
+  //     start: 'center center',
+  //     end: () => `+=${timelineLine.offsetHeight}`,  // End when the bottom of the timeline content is reached
+  //     pin: true,
+  //     pinSpacing: true,
+  //     scrub: true,
+  //     markers: false,
+  //     invalidateOnRefresh: true,
+  //     id: 'timelineScroll',
+  //     onUpdate: self => {
+  //       gsap.to(timelineFill, { height: `${self.progress * 100}%`, ease: "none" });
+  //       updateActiveTimelineNumber(self.progress);
+  //     }
+  //   });
+  // }
 
-  // Function to update active timeline number
-  function updateActiveTimelineNumber(progress) {
-    const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
-    const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
-    const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+  // // Function to update active timeline number
+  // function updateActiveTimelineNumber(progress) {
+  //   const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
+  //   const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
+  //   const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
 
-    timelineNumbers.forEach((number, index) => {
-      if (index <= activeIndex) {
-        if (!number.classList.contains('active')) {
-          number.classList.add('active');
-          gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
-        }
-      } else {
-        number.classList.remove('active');
-        gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
-      }
-    });
+  //   timelineNumbers.forEach((number, index) => {
+  //     if (index <= activeIndex) {
+  //       if (!number.classList.contains('active')) {
+  //         number.classList.add('active');
+  //         gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
+  //       }
+  //     } else {
+  //       number.classList.remove('active');
+  //       gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //     }
+  //   });
 
-    // Ensure the active class is removed from the first number if the fill height is 0
-    if (progress === 0) {
-      timelineNumbers[0].classList.remove('active');
-      gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
-    }
-  }
+  //   // Ensure the active class is removed from the first number if the fill height is 0
+  //   if (progress === 0) {
+  //     timelineNumbers[0].classList.remove('active');
+  //     gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  //   }
+  // }
 
-  // Initialize the timeline ScrollTrigger on page load
-  initTimelineScrollTrigger();
-
-
+  // // Initialize the timeline ScrollTrigger on page load
+  // initTimelineScrollTrigger();
 
 
 
-  // vertical progress bar on scroll end
+
+
+  // // vertical progress bar on scroll end
 
 
 
-  // Toggle Slick and GSAP animations on resize
-  function toggleSlickGsap() {
-    const mobSlider = $('.mob-slider');
-    if ($(window).width() < 992) {
-      if (!mobSlider.hasClass('slick-initialized')) {
-        mobSlider.slick({
-          responsive: [
-            {
-              breakpoint: 991,
-              settings: {
-                infinite: true,
-                speed: 300,
-                autoplay: true,
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                arrows: true,
-                dots: true,
-              }
-            },
-            {
-              breakpoint: 767,
-              settings: {
-                infinite: true,
-                speed: 300,
-                autoplay: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                dots: true,
-              }
-            }
-          ]
-        });
-      }
-    } else {
-      if (mobSlider.hasClass('slick-initialized')) {
-        mobSlider.slick('unslick');
-      }
-      // const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
-      // const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
-      // if (ibscrolltrigger && ibscrollwrapper) {
-      //   gsap.to(ibscrolltrigger, {
-      //     x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
-      //     ease: "none",
-      //     scrollTrigger: {
-      //       trigger: ibscrollwrapper,
-      //       start: 'top',
-      //       end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
-      //       markers: true,
-      //       pin: ibscrollwrapper,
-      //       scrub: 3,
-      //       invalidateOnRefresh: true,
-      //       id: 'horizontalScroll' // Give a unique ID
-      //     }
-      //   });
-      // }
+  // // Toggle Slick and GSAP animations on resize
+  // function toggleSlickGsap() {
+  //   const mobSlider = $('.mob-slider');
+  //   if ($(window).width() < 992) {
+  //     if (!mobSlider.hasClass('slick-initialized')) {
+  //       mobSlider.slick({
+  //         responsive: [
+  //           {
+  //             breakpoint: 991,
+  //             settings: {
+  //               infinite: true,
+  //               speed: 300,
+  //               autoplay: true,
+  //               slidesToShow: 2,
+  //               slidesToScroll: 1,
+  //               arrows: true,
+  //               dots: true,
+  //             }
+  //           },
+  //           {
+  //             breakpoint: 767,
+  //             settings: {
+  //               infinite: true,
+  //               speed: 300,
+  //               autoplay: true,
+  //               slidesToShow: 1,
+  //               slidesToScroll: 1,
+  //               arrows: true,
+  //               dots: true,
+  //             }
+  //           }
+  //         ]
+  //       });
+  //     }
+  //   } else {
+  //     if (mobSlider.hasClass('slick-initialized')) {
+  //       mobSlider.slick('unslick');
+  //     }
+  //     // const ibscrolltrigger = document.querySelector('.ib-scroll-trigger');
+  //     // const ibscrollwrapper = document.querySelector('.ib-scroll-wrapper');
+  //     // if (ibscrolltrigger && ibscrollwrapper) {
+  //     //   gsap.to(ibscrolltrigger, {
+  //     //     x: () => -ibscrolltrigger.scrollWidth + window.innerWidth,
+  //     //     ease: "none",
+  //     //     scrollTrigger: {
+  //     //       trigger: ibscrollwrapper,
+  //     //       start: 'top',
+  //     //       end: () => `+=${ibscrolltrigger.scrollWidth - window.innerWidth}`,
+  //     //       markers: true,
+  //     //       pin: ibscrollwrapper,
+  //     //       scrub: 3,
+  //     //       invalidateOnRefresh: true,
+  //     //       id: 'horizontalScroll' // Give a unique ID
+  //     //     }
+  //     //   });
+  //     // }
 
 
-      gsap.registerPlugin(ScrollTrigger);
+  //     gsap.registerPlugin(ScrollTrigger);
 
-      let horizontalSection = document.querySelector('.horizontal');
+  //     let horizontalSection = document.querySelector('.horizontal');
 
-      if (horizontalSection) {
-        gsap.to('.horizontal', {
-          x: () => horizontalSection.scrollWidth * -1,
-          xPercent: 100,
-          scrollTrigger: {
-            trigger: '.horizontal',
-            start: 'center center',
-            end: '+=2000px',
-            pin: '#horizontal-scroll',
-            scrub: 2,
-            id: 'horizontalScroll', // Give a unique ID
-            invalidateOnRefresh: true,
-          }
-        });
-      }
-    }
-  }
+  //     if (horizontalSection) {
+  //       gsap.to('.horizontal', {
+  //         x: () => horizontalSection.scrollWidth * -1,
+  //         xPercent: 100,
+  //         scrollTrigger: {
+  //           trigger: '.horizontal',
+  //           start: 'center center',
+  //           end: '+=2000px',
+  //           pin: '#horizontal-scroll',
+  //           scrub: 2,
+  //           id: 'horizontalScroll', // Give a unique ID
+  //           invalidateOnRefresh: true,
+  //         }
+  //       });
+  //     }
+  //   }
+  // }
 
-  // Initial call and bind resize event
-  toggleSlickGsap();
-  $(window).on('resize', function () {
-    // Clear only specific GSAP animations and ScrollTriggers related to responsive elements
-    ScrollTrigger.getAll().forEach(trigger => {
-      if (trigger.vars.id === 'horizontalScroll') {
-        trigger.kill();
-      }
-    });
-    toggleSlickGsap();
-  });
+  // // Initial call and bind resize event
+  // toggleSlickGsap();
+  // ScrollTrigger.sort();
+  // $(window).on('resize', function () {
+  //   // Clear only specific GSAP animations and ScrollTriggers related to responsive elements
+  //   ScrollTrigger.getAll().forEach(trigger => {
+  //     if (trigger.vars.id === 'horizontalScroll') {
+  //       trigger.kill();
+  //     }
+  //   });
+  //   toggleSlickGsap();
+  // });
 
 
 
@@ -654,15 +662,188 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Function to detect screen size changes and force a hard refresh
-  (function () {
-    let initialWidth = window.innerWidth;
+  // // Function to detect screen size changes and force a hard refresh
+  // (function () {
+  //   let initialWidth = window.innerWidth;
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth !== initialWidth) {
-        location.reload(); // Hard refresh the page
-      }
-    });
-  })();
+  //   window.addEventListener('resize', function () {
+  //     if (window.innerWidth !== initialWidth) {
+  //       location.reload(); // Hard refresh the page
+  //     }
+  //   });
+  // })();
 });
 
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+function initTimelineScrollTrigger() {
+  const section = document.querySelector('#ib-sec-steps');
+  if (!section) {
+    return;
+  }
+
+  const timelineLine = section.querySelector('.timeline-line');
+  const timelineFill = section.querySelector('.timeline-line-fill');
+  const timelineNumbers = section.querySelectorAll('.timeline-number');
+
+  if (timelineNumbers.length === 0) {
+    return;
+  }
+
+  const timelineNumberFirst = timelineNumbers[0];
+  const timelineNumberLast = timelineNumbers[timelineNumbers.length - 1];
+
+  // Function to update the height of the timeline line
+  function updateTimelineHeight() {
+    const sectionRect = section.getBoundingClientRect();
+    const topPosition = timelineNumberFirst.getBoundingClientRect().top - sectionRect.top;
+    const bottomPosition = timelineNumberLast.getBoundingClientRect().bottom - sectionRect.top;
+    const totalHeight = bottomPosition - topPosition;
+
+    // Set the height of the .timeline-line dynamically based on calculated height
+    timelineLine.style.height = `${totalHeight}px`;
+  }
+
+  // Call the function once to set the initial height
+  updateTimelineHeight();
+
+  // Recalculate the height on window resize
+  window.addEventListener('resize', updateTimelineHeight);
+
+  // Initialize ScrollTrigger
+  ScrollTrigger.create({
+    trigger: '#ib-sec-steps',
+    start: 'center center',
+    end: () => `+=${timelineLine.offsetHeight}`,  // End when the bottom of the timeline content is reached
+    pin: true,
+    pinSpacing: true,
+    scrub: true,
+    markers: false,
+    invalidateOnRefresh: true,
+    id: 'timelineScroll',
+    onUpdate: self => {
+      gsap.to(timelineFill, { height: `${self.progress * 100}%`, ease: "none" });
+      updateActiveTimelineNumber(self.progress);
+    }
+  });
+}
+
+// Function to update active timeline number
+function updateActiveTimelineNumber(progress) {
+  const timelineNumbers = document.querySelectorAll('.ib-timeline-content .timeline-number');
+  const timelineContents = document.querySelectorAll('.ib-timeline-content .timeline-content');
+  const activeIndex = Math.floor(progress * (timelineNumbers.length - 1));
+
+  timelineNumbers.forEach((number, index) => {
+    if (index <= activeIndex) {
+      if (!number.classList.contains('active')) {
+        number.classList.add('active');
+        gsap.fromTo(timelineContents[index], { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.5, ease: 'power2.out' });
+      }
+    } else {
+      number.classList.remove('active');
+      gsap.to(timelineContents[index], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+    }
+  });
+
+  // Ensure the active class is removed from the first number if the fill height is 0
+  if (progress === 0) {
+    timelineNumbers[0].classList.remove('active');
+    gsap.to(timelineContents[0], { x: '100%', opacity: 0, duration: 0.5, ease: 'power2.in' });
+  }
+}
+
+
+function initHorizontalScrollTrigger() {
+  let horizontalSection = document.querySelector('.horizontal');
+
+  if (horizontalSection) {
+    gsap.to('.horizontal', {
+      x: () => horizontalSection.scrollWidth * -1,
+      xPercent: 100,
+      scrollTrigger: {
+        trigger: '.horizontal',
+        start: 'center center',
+        end: '+=2000px',
+        pin: '#horizontal-scroll',
+        scrub: 2,
+        id: 'horizontalScroll',
+        invalidateOnRefresh: true,
+      }
+    });
+  }
+}
+
+function toggleSlickGsap() {
+  const mobSlider = $('.mob-slider');
+  if ($(window).width() < 992) {
+    if (!mobSlider.hasClass('slick-initialized')) {
+      mobSlider.slick({
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              infinite: true,
+              speed: 300,
+              autoplay: true,
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              arrows: true,
+              dots: true,
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              infinite: true,
+              speed: 300,
+              autoplay: true,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: true,
+              dots: true,
+            }
+          }
+        ]
+      });
+    }
+  } else {
+    if (mobSlider.hasClass('slick-initialized')) {
+      mobSlider.slick('unslick');
+    }
+
+    initHorizontalScrollTrigger();
+
+  }
+}
+
+// Initial call
+initTimelineScrollTrigger();
+toggleSlickGsap();
+ScrollTrigger.sort();
+ScrollTrigger.refresh();
+
+$(window).on('resize', function () {
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.vars.id === 'timelineScroll') {
+      trigger.kill();
+    }
+  });
+  initTimelineScrollTrigger();
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
+});
+
+
+$(window).on('resize', function () {
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.vars.id === 'horizontalScroll') {
+      trigger.kill();
+    }
+  });
+  toggleSlickGsap();
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
+});
