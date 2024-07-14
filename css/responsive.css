@@ -925,13 +925,25 @@
 @media (min-width:991px) {
 
     /* Home page and page-notfound menu color start */
-    #home #header-menu .ib-main-menu,
-    #page-notfound #header-menu .ib-main-menu {
+    #home #header-menu .ib-main-menu .header-logo,
+    #home #header-menu ul.ib-main-menu li.ib-sub-menu a::after,
+    #home #header-menu ul.ib-main-menu li:last-child a::after,
+    #page-notfound #header-menu .ib-main-menu .header-logo,
+    #page-notfound #header-menu ul.ib-main-menu li.ib-sub-menu a::after,
+    #page-notfound #header-menu ul.ib-main-menu li:last-child a::after {
         filter: invert(1);
     }
 
-    #home #header-menu.scroll .ib-main-menu,
-    #page-notfound #header-menu.scroll .ib-main-menu {
+    #home #header-menu.scroll .ib-main-menu .header-logo,
+    #home #header-menu.scroll ul.ib-main-menu li.ib-sub-menu a::after,
+    #home #header-menu.scroll ul.ib-main-menu li:last-child a::after,
+    #home #header-menu ul.ib-main-menu li.ib-sub-menu a:hover::after,
+    #home #header-menu ul.ib-main-menu li:last-child a:hover::after,
+    #page-notfound #header-menu.scroll .ib-main-menu .header-logo,
+    #page-notfound #header-menu.scroll ul.ib-main-menu li.ib-sub-menu a::after,
+    #page-notfound #header-menu.scroll ul.ib-main-menu li:last-child a::after,
+    #page-notfound #header-menu ul.ib-main-menu li.ib-sub-menu a:hover::after,
+    #page-notfound #header-menu ul.ib-main-menu li:last-child a:hover::after {
         filter: none !important;
     }
 

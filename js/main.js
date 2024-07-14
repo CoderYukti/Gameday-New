@@ -661,6 +661,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  document.querySelector('.services-menu').addEventListener('click', function() {
+    const subMenu = document.querySelector('.services-sub-menu');
+    if (subMenu.classList.contains('show')) {
+        const height = subMenu.scrollHeight + 'px';
+        subMenu.style.height = height;
+        requestAnimationFrame(() => {
+            subMenu.style.height = '0';
+            subMenu.style.opacity = '0';
+            subMenu.style.transform = 'translateY(20px)';
+        });
+        subMenu.addEventListener('transitionend', function() {
+            subMenu.classList.remove('show');
+        }, { once: true });
+    } else {
+        subMenu.classList.add('show');
+        const height = subMenu.scrollHeight + 'px';
+        subMenu.style.height = '0';
+        requestAnimationFrame(() => {
+            subMenu.style.height = height;
+            subMenu.style.opacity = '1';
+            subMenu.style.transform = 'translateY(0)';
+        });
+        subMenu.addEventListener('transitionend', function() {
+            subMenu.style.height = 'auto';
+        }, { once: true });
+    }
+});
+
+
 
   // // Function to detect screen size changes and force a hard refresh
   // (function () {
